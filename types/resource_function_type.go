@@ -11,6 +11,14 @@ type ResourceFunctionType struct {
 	Output       *TypeReference `json:"output"`
 }
 
+func (t *ResourceFunctionType) Validate(i interface{}, s string) []error {
+	return nil
+}
+
+func (t *ResourceFunctionType) FilterReadOnlyFields(i interface{}) interface{} {
+	return i
+}
+
 func (t *ResourceFunctionType) FilterConfigurableFields(i interface{}) interface{} {
 	return i
 }

@@ -16,6 +16,27 @@ type ResourceType struct {
 	Flags              []ResourceTypeFlag
 }
 
+func (t *ResourceType) Validate(body interface{}, path string) []error {
+	if t == nil || body == nil {
+		return []error{}
+	}
+	errors := make([]error, 0)
+	if t.Body != nil && t.Body.Type != nil {
+		errors = append(errors, (*t.Body.Type).Validate(body, path)...)
+	}
+	return errors
+}
+
+func (t *ResourceType) FilterReadOnlyFields(i interface{}) interface{} {
+	if t == nil || i == nil {
+		return nil
+	}
+	if t.Body != nil && t.Body.Type != nil {
+		return (*t.Body.Type).FilterReadOnlyFields(i)
+	}
+	return i
+}
+
 func (t *ResourceType) FilterConfigurableFields(body interface{}) interface{} {
 	if t == nil || body == nil {
 		return nil

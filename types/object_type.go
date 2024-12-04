@@ -15,6 +15,109 @@ type ObjectType struct {
 	Sensitive            bool                      `json:"sensitive"`
 }
 
+func (t *ObjectType) Validate(body interface{}, path string) []error {
+	if t == nil || body == nil {
+		return []error{}
+	}
+	errors := make([]error, 0)
+	// check body type
+	bodyMap, ok := body.(map[string]interface{})
+	if !ok {
+		errors = append(errors, ErrorMismatch(path, "object", fmt.Sprintf("%T", body)))
+		return errors
+	}
+	// check properties defined in body, but not in schema
+	for key, value := range bodyMap {
+		if def, ok := t.Properties[key]; ok {
+			if def.IsReadOnly() {
+				errors = append(errors, ErrorShouldNotDefineReadOnly(path+"."+key))
+				continue
+			}
+			var valueDefType *TypeBase
+			if def.Type != nil && def.Type.Type != nil {
+				valueDefType = def.Type.Type
+				errors = append(errors, (*valueDefType).Validate(value, path+"."+key)...)
+			}
+			continue
+		}
+		if t.AdditionalProperties != nil && t.AdditionalProperties.Type != nil {
+			errors = append(errors, (*t.AdditionalProperties.Type).Validate(value, path+"."+key)...)
+		} else {
+			options := make([]string, 0)
+			for key := range t.Properties {
+				options = append(options, path+"."+key)
+			}
+			errors = append(errors, ErrorShouldNotDefine(path+"."+key, options))
+		}
+	}
+
+	// check properties required in schema, but not in body
+	for key, value := range t.Properties {
+		if !value.IsRequired() {
+			continue
+		}
+		if _, ok := bodyMap[key]; !ok {
+			// skip name in body
+			if path == "" && key == "name" {
+				continue
+			}
+			errors = append(errors, ErrorShouldDefine(path+"."+key))
+		}
+	}
+	return errors
+}
+
+func (t *ObjectType) FilterReadOnlyFields(body interface{}) interface{} {
+	if t == nil || body == nil {
+		return nil
+	}
+
+	// check body type
+	bodyMap, ok := body.(map[string]interface{})
+	if !ok {
+		return body
+	}
+
+	res := make(map[string]interface{})
+	for key, def := range t.Properties {
+		if _, ok := bodyMap[key]; ok {
+			if bodyMap[key] == nil {
+				continue
+			}
+			if def.Type == nil || def.Type.Type == nil {
+				res[key] = bodyMap[key]
+				continue
+			}
+			switch v := bodyMap[key].(type) {
+			case map[string]interface{}:
+				out := (*def.Type.Type).FilterReadOnlyFields(v)
+				if outMap, ok := out.(map[string]interface{}); ok && len(outMap) > 0 {
+					res[key] = out
+				}
+			case []interface{}:
+				out := (*def.Type.Type).FilterReadOnlyFields(v)
+				if outArray, ok := out.([]interface{}); ok && len(outArray) > 0 {
+					res[key] = out
+				}
+			default:
+				if def.IsReadOnly() {
+					res[key] = (*def.Type.Type).FilterReadOnlyFields(bodyMap[key])
+				}
+			}
+		}
+	}
+
+	if t.AdditionalProperties != nil && t.AdditionalProperties.Type != nil {
+		for key, value := range bodyMap {
+			if _, ok := t.Properties[key]; ok {
+				continue
+			}
+			res[key] = (*t.AdditionalProperties.Type).FilterReadOnlyFields(value)
+		}
+	}
+	return res
+}
+
 func (t *ObjectType) FilterConfigurableFields(body interface{}) interface{} {
 	if t == nil || body == nil {
 		return nil
