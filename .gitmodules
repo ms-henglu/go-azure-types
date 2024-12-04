@@ -1,0 +1,3 @@
+[submodule "embed/bicep-types-az"]
+	path = embed/bicep-types-az
+	url = git@github.com:ms-henglu/bicep-types-az.git
