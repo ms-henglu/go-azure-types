@@ -15,7 +15,8 @@ jobs:
      steps:
        - name: Checkout Source
          uses: actions/checkout@v2
-       - run: git submodule update --init --recursive
+         with:
+           submodules: recursive
        - name: Run Gosec Security Scanner
          uses: securego/gosec@master
          with:

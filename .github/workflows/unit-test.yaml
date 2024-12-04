@@ -19,8 +19,9 @@ jobs:
       fail-fast: true
     steps:
       - uses: actions/checkout@v2
+        with:
+          submodules: recursive
       - uses: actions/setup-go@v2
         with:
           go-version-file: 'go.mod'
-      - run: git submodule update --init --recursive
       - run: go test -v ./... -timeout=600s -parallel=20
