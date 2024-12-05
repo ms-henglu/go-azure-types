@@ -18,9 +18,7 @@ jobs:
     strategy:
       fail-fast: true
     steps:
-      - uses: actions/checkout@v2
-        with:
-          submodules: recursive
+      - uses: actions/checkout@v4
       - uses: actions/setup-go@v2
         with:
           go-version-file: 'go.mod'

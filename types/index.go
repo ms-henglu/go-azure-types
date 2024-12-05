@@ -65,7 +65,7 @@ func (o *TypeLocation) LoadResourceTypeDefinition() (*ResourceType, error) {
 	if o == nil {
 		return nil, nil
 	}
-	data, err := o.StaticFiles.ReadFile("bicep-types-az/generated/" + o.Location)
+	data, err := o.StaticFiles.ReadFile("generated/" + o.Location)
 	if err != nil {
 		return nil, err
 	}
@@ -86,7 +86,7 @@ func (o *TypeLocation) LoadFunctionTypeDefinition() (*ResourceFunctionType, erro
 	if o == nil {
 		return nil, nil
 	}
-	data, err := o.StaticFiles.ReadFile("bicep-types-az/generated/" + o.Location)
+	data, err := o.StaticFiles.ReadFile("generated/" + o.Location)
 	if err != nil {
 		return nil, err
 	}
