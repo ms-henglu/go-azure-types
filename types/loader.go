@@ -36,7 +36,7 @@ func (r *AzureSchemaLoader) GetSchema() *Schema {
 	r.mutex.Lock()
 	defer r.mutex.Unlock()
 	if r.schema == nil {
-		data, err := r.staticFiles.ReadFile("bicep-types-az/generated/index.json")
+		data, err := r.staticFiles.ReadFile("generated/index.json")
 		if err != nil {
 			log.Printf("[ERROR] failed to load schema index: %+v", err)
 			return nil

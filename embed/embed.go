@@ -2,5 +2,5 @@ package embed
 
 import "embed"
 
-//go:embed bicep-types-az/generated
+//go:embed generated
 var StaticFiles embed.FS
