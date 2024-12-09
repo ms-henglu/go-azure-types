@@ -19,7 +19,7 @@ func (t *ArrayType) Validate(body interface{}, path string) []error {
 		return []error{}
 	}
 	errors := make([]error, 0)
-	var itemType *TypeBase
+	var itemType TypeBase
 	if t.ItemType != nil {
 		itemType = t.ItemType.Type
 	}
@@ -41,7 +41,7 @@ func (t *ArrayType) Validate(body interface{}, path string) []error {
 
 	for index, value := range bodyArray {
 		if itemType != nil {
-			errors = append(errors, (*itemType).Validate(value, path+"."+strconv.Itoa(index))...)
+			errors = append(errors, itemType.Validate(value, path+"."+strconv.Itoa(index))...)
 		}
 	}
 	return errors
@@ -64,7 +64,7 @@ func (t *ArrayType) FilterReadOnlyFields(i interface{}) interface{} {
 
 	res := make([]interface{}, 0)
 	for _, value := range bodyArray {
-		res = append(res, (*itemType).FilterReadOnlyFields(value))
+		res = append(res, itemType.FilterReadOnlyFields(value))
 	}
 	return res
 }
@@ -87,7 +87,7 @@ func (t *ArrayType) FilterConfigurableFields(i interface{}) interface{} {
 
 	res := make([]interface{}, 0)
 	for _, value := range bodyArray {
-		res = append(res, (*itemType).FilterConfigurableFields(value))
+		res = append(res, itemType.FilterConfigurableFields(value))
 	}
 	return res
 }

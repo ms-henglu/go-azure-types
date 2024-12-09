@@ -34,10 +34,8 @@ func (t *DiscriminatedObjectType) Validate(body interface{}, path string) []erro
 				errors = append(errors, ErrorShouldNotDefineReadOnly(path+"."+key))
 				continue
 			}
-			var valueDefType *TypeBase
 			if def.Type != nil && def.Type.Type != nil {
-				valueDefType = def.Type.Type
-				errors = append(errors, (*valueDefType).Validate(value, path+"."+key)...)
+				errors = append(errors, def.Type.Type.Validate(value, path+"."+key)...)
 			}
 		} else {
 			otherProperties[key] = value
@@ -69,7 +67,7 @@ func (t *DiscriminatedObjectType) Validate(body interface{}, path string) []erro
 			}
 			errors = append(errors, ErrorNotMatchAnyValues(path+"."+t.Discriminator, discriminator, options))
 		case t.Elements[discriminator].Type != nil:
-			errors = append(errors, (*t.Elements[discriminator].Type).Validate(otherProperties, path)...)
+			errors = append(errors, t.Elements[discriminator].Type.Validate(otherProperties, path)...)
 		}
 	} else {
 		errors = append(errors, ErrorMismatch(path+"."+t.Discriminator, "string", fmt.Sprintf("%T", otherProperties[t.Discriminator])))
@@ -92,7 +90,7 @@ func (t *DiscriminatedObjectType) FilterReadOnlyFields(body interface{}) interfa
 	for key, def := range t.BaseProperties {
 		if _, ok := bodyMap[key]; ok {
 			if def.Type != nil && def.Type.Type != nil {
-				res[key] = (*def.Type.Type).FilterReadOnlyFields(bodyMap[key])
+				res[key] = def.Type.Type.FilterReadOnlyFields(bodyMap[key])
 			} else {
 				res[key] = bodyMap[key]
 			}
@@ -105,7 +103,7 @@ func (t *DiscriminatedObjectType) FilterReadOnlyFields(body interface{}) interfa
 
 	if discriminator, ok := bodyMap[t.Discriminator].(string); ok {
 		if t.Elements[discriminator] != nil && t.Elements[discriminator].Type != nil {
-			if additionalProps := (*t.Elements[discriminator].Type).FilterReadOnlyFields(body); additionalProps != nil {
+			if additionalProps := t.Elements[discriminator].Type.FilterReadOnlyFields(body); additionalProps != nil {
 				if additionalMap, ok := additionalProps.(map[string]interface{}); ok {
 					for key, value := range additionalMap {
 						res[key] = value
@@ -140,7 +138,7 @@ func (t *DiscriminatedObjectType) FilterConfigurableFields(body interface{}) int
 	for key, def := range t.BaseProperties {
 		if _, ok := bodyMap[key]; ok {
 			if !def.IsReadOnly() && def.Type != nil && def.Type.Type != nil {
-				res[key] = (*def.Type.Type).FilterConfigurableFields(bodyMap[key])
+				res[key] = def.Type.Type.FilterConfigurableFields(bodyMap[key])
 			}
 		}
 	}
@@ -151,7 +149,7 @@ func (t *DiscriminatedObjectType) FilterConfigurableFields(body interface{}) int
 
 	if discriminator, ok := bodyMap[t.Discriminator].(string); ok {
 		if t.Elements[discriminator] != nil && t.Elements[discriminator].Type != nil {
-			if additionalProps := (*t.Elements[discriminator].Type).FilterConfigurableFields(body); additionalProps != nil {
+			if additionalProps := t.Elements[discriminator].Type.FilterConfigurableFields(body); additionalProps != nil {
 				if additionalMap, ok := additionalProps.(map[string]interface{}); ok {
 					for key, value := range additionalMap {
 						res[key] = value

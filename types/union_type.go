@@ -17,7 +17,7 @@ func (t *UnionType) Validate(body interface{}, path string) []error {
 		if element.Type == nil {
 			continue
 		}
-		temp := (*element.Type).Validate(body, path)
+		temp := element.Type.Validate(body, path)
 		if len(temp) == 0 {
 			valid = true
 			break
@@ -27,7 +27,7 @@ func (t *UnionType) Validate(body interface{}, path string) []error {
 		options := make([]string, 0)
 		for _, element := range t.Elements {
 			if element.Type != nil {
-				if stringLiteralType, ok := (*element.Type).(*StringLiteralType); ok {
+				if stringLiteralType, ok := element.Type.(*StringLiteralType); ok {
 					options = append(options, stringLiteralType.Value)
 				}
 			}
