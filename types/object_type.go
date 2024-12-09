@@ -33,15 +33,13 @@ func (t *ObjectType) Validate(body interface{}, path string) []error {
 				errors = append(errors, ErrorShouldNotDefineReadOnly(path+"."+key))
 				continue
 			}
-			var valueDefType *TypeBase
 			if def.Type != nil && def.Type.Type != nil {
-				valueDefType = def.Type.Type
-				errors = append(errors, (*valueDefType).Validate(value, path+"."+key)...)
+				errors = append(errors, def.Type.Type.Validate(value, path+"."+key)...)
 			}
 			continue
 		}
 		if t.AdditionalProperties != nil && t.AdditionalProperties.Type != nil {
-			errors = append(errors, (*t.AdditionalProperties.Type).Validate(value, path+"."+key)...)
+			errors = append(errors, t.AdditionalProperties.Type.Validate(value, path+"."+key)...)
 		} else {
 			options := make([]string, 0)
 			for key := range t.Properties {
@@ -90,18 +88,18 @@ func (t *ObjectType) FilterReadOnlyFields(body interface{}) interface{} {
 			}
 			switch v := bodyMap[key].(type) {
 			case map[string]interface{}:
-				out := (*def.Type.Type).FilterReadOnlyFields(v)
+				out := def.Type.Type.FilterReadOnlyFields(v)
 				if outMap, ok := out.(map[string]interface{}); ok && len(outMap) > 0 {
 					res[key] = out
 				}
 			case []interface{}:
-				out := (*def.Type.Type).FilterReadOnlyFields(v)
+				out := def.Type.Type.FilterReadOnlyFields(v)
 				if outArray, ok := out.([]interface{}); ok && len(outArray) > 0 {
 					res[key] = out
 				}
 			default:
 				if def.IsReadOnly() {
-					res[key] = (*def.Type.Type).FilterReadOnlyFields(bodyMap[key])
+					res[key] = def.Type.Type.FilterReadOnlyFields(bodyMap[key])
 				}
 			}
 		}
@@ -112,7 +110,7 @@ func (t *ObjectType) FilterReadOnlyFields(body interface{}) interface{} {
 			if _, ok := t.Properties[key]; ok {
 				continue
 			}
-			res[key] = (*t.AdditionalProperties.Type).FilterReadOnlyFields(value)
+			res[key] = t.AdditionalProperties.Type.FilterReadOnlyFields(value)
 		}
 	}
 	return res
@@ -132,7 +130,7 @@ func (t *ObjectType) FilterConfigurableFields(body interface{}) interface{} {
 	for key, def := range t.Properties {
 		if _, ok := bodyMap[key]; ok {
 			if (def.IsRequired() || (!def.IsReadOnly() && !def.IsDeployTimeConstant())) && def.Type != nil && def.Type.Type != nil {
-				res[key] = (*def.Type.Type).FilterConfigurableFields(bodyMap[key])
+				res[key] = def.Type.Type.FilterConfigurableFields(bodyMap[key])
 			}
 		}
 	}
@@ -142,7 +140,7 @@ func (t *ObjectType) FilterConfigurableFields(body interface{}) interface{} {
 			if _, ok := t.Properties[key]; ok {
 				continue
 			}
-			res[key] = (*t.AdditionalProperties.Type).FilterConfigurableFields(value)
+			res[key] = t.AdditionalProperties.Type.FilterConfigurableFields(value)
 		}
 	}
 	return res

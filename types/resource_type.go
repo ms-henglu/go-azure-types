@@ -22,7 +22,7 @@ func (t *ResourceType) Validate(body interface{}, path string) []error {
 	}
 	errors := make([]error, 0)
 	if t.Body != nil && t.Body.Type != nil {
-		errors = append(errors, (*t.Body.Type).Validate(body, path)...)
+		errors = append(errors, t.Body.Type.Validate(body, path)...)
 	}
 	return errors
 }
@@ -32,7 +32,7 @@ func (t *ResourceType) FilterReadOnlyFields(i interface{}) interface{} {
 		return nil
 	}
 	if t.Body != nil && t.Body.Type != nil {
-		return (*t.Body.Type).FilterReadOnlyFields(i)
+		return t.Body.Type.FilterReadOnlyFields(i)
 	}
 	return i
 }
@@ -42,7 +42,7 @@ func (t *ResourceType) FilterConfigurableFields(body interface{}) interface{} {
 		return nil
 	}
 	if t.Body != nil && t.Body.Type != nil {
-		return (*t.Body.Type).FilterConfigurableFields(body)
+		return t.Body.Type.FilterConfigurableFields(body)
 	}
 	return body
 }

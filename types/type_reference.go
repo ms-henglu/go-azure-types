@@ -7,7 +7,7 @@ import (
 )
 
 type TypeReference struct {
-	Type *TypeBase
+	Type TypeBase
 	Ref  string `json:"$ref"`
 }
 
@@ -31,5 +31,13 @@ func (t *TypeReference) UpdateType(types []*TypeBase) {
 		log.Printf("[WARN] invalid, the ref is invalid: %s: %s", t.Ref, err)
 		return
 	}
-	t.Type = types[int(index)]
+	if int(index) >= len(types) {
+		log.Printf("[WARN] invalid, the ref is invalid: %s", t.Ref)
+		return
+	}
+	if types[int(index)] == nil {
+		log.Printf("[WARN] invalid, the ref is invalid: %s", t.Ref)
+		return
+	}
+	t.Type = *types[int(index)]
 }
