@@ -22659,6 +22659,12 @@
         "flags": 0,
         "description": "Managed resource group specific settings"
       },
+      "syndicatedRegistries": {
+        "type": {
+          "$ref": "#/1692"
+        },
+        "flags": 0
+      },
       "mlFlowRegistryUri": {
         "type": {
           "$ref": "#/2"
@@ -22668,7 +22674,7 @@
       },
       "registryPrivateEndpointConnections": {
         "type": {
-          "$ref": "#/1702"
+          "$ref": "#/1704"
         },
         "flags": 0,
         "description": "Private endpoint connections info used for pending connections in private link portal"
@@ -22736,6 +22742,25 @@
   },
   {
     "$type": "ObjectType",
+    "name": "RegistrySyndicatedRegistriesItem",
+    "properties": {
+      "registryId": {
+        "type": {
+          "$ref": "#/2"
+        },
+        "flags": 0,
+        "description": "Registry id guid of a destination registry that this registry can syndicate to"
+      }
+    }
+  },
+  {
+    "$type": "ArrayType",
+    "itemType": {
+      "$ref": "#/1691"
+    }
+  },
+  {
+    "$type": "ObjectType",
     "name": "RegistryPrivateEndpointConnection",
     "properties": {
       "id": {
@@ -22754,7 +22779,7 @@
       },
       "properties": {
         "type": {
-          "$ref": "#/1692"
+          "$ref": "#/1694"
         },
         "flags": 0,
         "description": "Properties of the Private Endpoint Connection"
@@ -22767,21 +22792,21 @@
     "properties": {
       "groupIds": {
         "type": {
-          "$ref": "#/1693"
+          "$ref": "#/1695"
         },
         "flags": 0,
         "description": "The group ids"
       },
       "privateEndpoint": {
         "type": {
-          "$ref": "#/1694"
+          "$ref": "#/1696"
         },
         "flags": 0,
         "description": "The PE network resource that is linked to this PE connection."
       },
       "registryPrivateLinkServiceConnectionState": {
         "type": {
-          "$ref": "#/1695"
+          "$ref": "#/1697"
         },
         "flags": 0,
         "description": "The connection state."
@@ -22841,7 +22866,7 @@
       },
       "status": {
         "type": {
-          "$ref": "#/1701"
+          "$ref": "#/1703"
         },
         "flags": 0,
         "description": "Connection status of the service consumer with the service provider"
@@ -22872,12 +22897,6 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/1696"
-      },
-      {
-        "$ref": "#/1697"
-      },
-      {
         "$ref": "#/1698"
       },
       {
@@ -22887,6 +22906,12 @@
         "$ref": "#/1700"
       },
       {
+        "$ref": "#/1701"
+      },
+      {
+        "$ref": "#/1702"
+      },
+      {
         "$ref": "#/2"
       }
     ]
@@ -22894,7 +22919,7 @@
   {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/1691"
+      "$ref": "#/1693"
     }
   },
   {
@@ -22903,7 +22928,7 @@
     "properties": {
       "acrDetails": {
         "type": {
-          "$ref": "#/1707"
+          "$ref": "#/1708"
         },
         "flags": 0,
         "description": "List of ACR accounts"
@@ -22930,17 +22955,10 @@
     "properties": {
       "systemCreatedAcrAccount": {
         "type": {
-          "$ref": "#/1705"
+          "$ref": "#/1707"
         },
         "flags": 0,
         "description": "Details of system created ACR account to be used for the Registry"
-      },
-      "userCreatedAcrAccount": {
-        "type": {
-          "$ref": "#/1706"
-        },
-        "flags": 0,
-        "description": "Details of user created ACR account to be used for the Registry"
       }
     }
   },
@@ -22972,22 +22990,9 @@
     }
   },
   {
-    "$type": "ObjectType",
-    "name": "UserCreatedAcrAccount",
-    "properties": {
-      "armResourceId": {
-        "type": {
-          "$ref": "#/1687"
-        },
-        "flags": 0,
-        "description": "ARM ResourceId of a resource"
-      }
-    }
-  },
-  {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/1704"
+      "$ref": "#/1706"
     }
   },
   {
@@ -22996,17 +23001,10 @@
     "properties": {
       "systemCreatedStorageAccount": {
         "type": {
-          "$ref": "#/1709"
-        },
-        "flags": 0,
-        "description": "Details of system created storage account to be used for the registry"
-      },
-      "userCreatedStorageAccount": {
-        "type": {
           "$ref": "#/1710"
         },
         "flags": 0,
-        "description": "Details of user created storage account to be used for the registry"
+        "description": "Details of system created storage account to be used for the registry"
       }
     }
   },
@@ -23052,28 +23050,15 @@
     }
   },
   {
-    "$type": "ObjectType",
-    "name": "UserCreatedStorageAccount",
-    "properties": {
-      "armResourceId": {
-        "type": {
-          "$ref": "#/1687"
-        },
-        "flags": 0,
-        "description": "ARM ResourceId of a resource"
-      }
+    "$type": "ArrayType",
+    "itemType": {
+      "$ref": "#/1709"
     }
   },
   {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/1708"
-    }
-  },
-  {
-    "$type": "ArrayType",
-    "itemType": {
-      "$ref": "#/1703"
+      "$ref": "#/1705"
     }
   },
   {
@@ -29995,7 +29980,7 @@
           "$ref": "#/21"
         },
         "flags": 0,
-        "description": "Gets or sets the number of instances (scale units) which Failed provisioning state and have target group payload."
+        "description": "Gets or sets the number of instances (scale units) which have Failed provisioning state and have target group payload."
       },
       "outdatedSucceeded": {
         "type": {
