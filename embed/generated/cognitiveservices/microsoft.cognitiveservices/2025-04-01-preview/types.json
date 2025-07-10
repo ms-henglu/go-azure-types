@@ -422,7 +422,7 @@
     "properties": {
       "provisioningState": {
         "type": {
-          "$ref": "#/41"
+          "$ref": "#/42"
         },
         "flags": 2,
         "description": "Gets the status of the cognitive services account at the time the operation was called."
@@ -443,14 +443,14 @@
       },
       "capabilities": {
         "type": {
-          "$ref": "#/43"
+          "$ref": "#/44"
         },
         "flags": 2,
         "description": "Gets the capabilities of the cognitive services account. Each item indicates the capability of a specific feature. The values are read-only and for reference only."
       },
       "isMigrated": {
         "type": {
-          "$ref": "#/44"
+          "$ref": "#/45"
         },
         "flags": 2,
         "description": "If the resource is migrated from an existing key."
@@ -464,7 +464,7 @@
       },
       "skuChangeInfo": {
         "type": {
-          "$ref": "#/45"
+          "$ref": "#/46"
         },
         "flags": 2,
         "description": "Sku change info of account."
@@ -478,49 +478,49 @@
       },
       "networkAcls": {
         "type": {
-          "$ref": "#/46"
+          "$ref": "#/47"
         },
         "flags": 0,
         "description": "A collection of rules governing the accessibility from specific network locations."
       },
       "encryption": {
         "type": {
-          "$ref": "#/57"
+          "$ref": "#/58"
         },
         "flags": 0,
         "description": "The encryption properties for this resource."
       },
       "userOwnedStorage": {
         "type": {
-          "$ref": "#/63"
+          "$ref": "#/64"
         },
         "flags": 0,
         "description": "The storage accounts for this resource."
       },
       "amlWorkspace": {
         "type": {
-          "$ref": "#/64"
+          "$ref": "#/65"
         },
         "flags": 0,
         "description": "The user owned AML account properties."
       },
       "privateEndpointConnections": {
         "type": {
-          "$ref": "#/79"
+          "$ref": "#/80"
         },
         "flags": 2,
         "description": "The private endpoint connection associated with the Cognitive Services account."
       },
       "publicNetworkAccess": {
         "type": {
-          "$ref": "#/82"
+          "$ref": "#/83"
         },
         "flags": 0,
         "description": "Whether or not public endpoint access is allowed for this account."
       },
       "apiProperties": {
         "type": {
-          "$ref": "#/84"
+          "$ref": "#/85"
         },
         "flags": 0,
         "description": "The api properties for special APIs."
@@ -534,52 +534,52 @@
       },
       "callRateLimit": {
         "type": {
-          "$ref": "#/88"
+          "$ref": "#/89"
         },
         "flags": 2,
         "description": "The call rate limit Cognitive Services account."
       },
       "dynamicThrottlingEnabled": {
         "type": {
-          "$ref": "#/44"
+          "$ref": "#/45"
         },
         "flags": 0,
         "description": "The flag to enable dynamic throttling."
       },
       "quotaLimit": {
         "type": {
-          "$ref": "#/93"
+          "$ref": "#/94"
         },
         "flags": 2
       },
       "restrictOutboundNetworkAccess": {
         "type": {
-          "$ref": "#/44"
+          "$ref": "#/45"
         },
         "flags": 0
       },
       "allowedFqdnList": {
         "type": {
-          "$ref": "#/95"
+          "$ref": "#/96"
         },
         "flags": 0
       },
       "disableLocalAuth": {
         "type": {
-          "$ref": "#/44"
+          "$ref": "#/45"
         },
         "flags": 0
       },
       "endpoints": {
         "type": {
-          "$ref": "#/96"
+          "$ref": "#/97"
         },
         "flags": 2,
         "description": "Dictionary of <string>"
       },
       "restore": {
         "type": {
-          "$ref": "#/44"
+          "$ref": "#/45"
         },
         "flags": 4
       },
@@ -599,31 +599,59 @@
       },
       "locations": {
         "type": {
-          "$ref": "#/97"
+          "$ref": "#/98"
         },
         "flags": 0,
         "description": "The multiregion settings of Cognitive Services account."
       },
       "commitmentPlanAssociations": {
         "type": {
-          "$ref": "#/105"
+          "$ref": "#/106"
         },
         "flags": 2,
         "description": "The commitment plan associations of Cognitive Services account."
       },
       "abusePenalty": {
         "type": {
-          "$ref": "#/106"
+          "$ref": "#/107"
         },
         "flags": 2,
         "description": "The abuse penalty."
       },
       "raiMonitorConfig": {
         "type": {
-          "$ref": "#/110"
+          "$ref": "#/111"
         },
         "flags": 0,
         "description": "Cognitive Services Rai Monitor Config."
+      },
+      "networkInjections": {
+        "type": {
+          "$ref": "#/112"
+        },
+        "flags": 0,
+        "description": "Specifies in AI Foundry where virtual network injection occurs to secure scenarios like Agents entirely within the user's private network, eliminating public internet exposure while maintaining control over network configurations and resources."
+      },
+      "allowProjectManagement": {
+        "type": {
+          "$ref": "#/45"
+        },
+        "flags": 0,
+        "description": "Specifies whether this resource support project management as child resources, used as containers for access management, data isolation and cost in AI Foundry."
+      },
+      "defaultProject": {
+        "type": {
+          "$ref": "#/2"
+        },
+        "flags": 0,
+        "description": "Specifies the project that is targeted when data plane endpoints are called without a project parameter."
+      },
+      "associatedProjects": {
+        "type": {
+          "$ref": "#/116"
+        },
+        "flags": 0,
+        "description": "Specifies the projects that are associated with this resource."
       }
     }
   },
@@ -656,6 +684,10 @@
     "value": "ResolvingDNS"
   },
   {
+    "$type": "StringLiteralType",
+    "value": "Canceled"
+  },
+  {
     "$type": "UnionType",
     "elements": [
       {
@@ -678,6 +710,9 @@
       },
       {
         "$ref": "#/40"
+      },
+      {
+        "$ref": "#/41"
       },
       {
         "$ref": "#/2"
@@ -707,7 +742,7 @@
   {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/42"
+      "$ref": "#/43"
     }
   },
   {
@@ -746,28 +781,28 @@
     "properties": {
       "defaultAction": {
         "type": {
-          "$ref": "#/49"
+          "$ref": "#/50"
         },
         "flags": 0,
         "description": "The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated."
       },
       "bypass": {
         "type": {
-          "$ref": "#/52"
+          "$ref": "#/53"
         },
         "flags": 0,
         "description": "Setting for trusted services."
       },
       "ipRules": {
         "type": {
-          "$ref": "#/54"
+          "$ref": "#/55"
         },
         "flags": 0,
         "description": "The list of IP address rules."
       },
       "virtualNetworkRules": {
         "type": {
-          "$ref": "#/56"
+          "$ref": "#/57"
         },
         "flags": 0,
         "description": "The list of virtual network rules."
@@ -786,10 +821,10 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/47"
+        "$ref": "#/48"
       },
       {
-        "$ref": "#/48"
+        "$ref": "#/49"
       },
       {
         "$ref": "#/2"
@@ -808,10 +843,10 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/50"
+        "$ref": "#/51"
       },
       {
-        "$ref": "#/51"
+        "$ref": "#/52"
       },
       {
         "$ref": "#/2"
@@ -834,7 +869,7 @@
   {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/53"
+      "$ref": "#/54"
     }
   },
   {
@@ -857,7 +892,7 @@
       },
       "ignoreMissingVnetServiceEndpoint": {
         "type": {
-          "$ref": "#/44"
+          "$ref": "#/45"
         },
         "flags": 0,
         "description": "Ignore missing vnet service endpoint or not."
@@ -867,7 +902,7 @@
   {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/55"
+      "$ref": "#/56"
     }
   },
   {
@@ -876,14 +911,14 @@
     "properties": {
       "keyVaultProperties": {
         "type": {
-          "$ref": "#/58"
+          "$ref": "#/59"
         },
         "flags": 0,
         "description": "Properties of KeyVault"
       },
       "keySource": {
         "type": {
-          "$ref": "#/61"
+          "$ref": "#/62"
         },
         "flags": 0,
         "description": "Enumerates the possible value of keySource for Encryption"
@@ -935,10 +970,10 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/59"
+        "$ref": "#/60"
       },
       {
-        "$ref": "#/60"
+        "$ref": "#/61"
       },
       {
         "$ref": "#/2"
@@ -967,7 +1002,7 @@
   {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/62"
+      "$ref": "#/63"
     }
   },
   {
@@ -996,7 +1031,7 @@
     "properties": {
       "properties": {
         "type": {
-          "$ref": "#/66"
+          "$ref": "#/67"
         },
         "flags": 0,
         "description": "Resource properties."
@@ -1051,28 +1086,28 @@
     "properties": {
       "privateEndpoint": {
         "type": {
-          "$ref": "#/67"
+          "$ref": "#/68"
         },
         "flags": 0,
         "description": "The resource of private end point."
       },
       "privateLinkServiceConnectionState": {
         "type": {
-          "$ref": "#/68"
+          "$ref": "#/69"
         },
         "flags": 1,
         "description": "A collection of information about the state of the connection between service consumer and provider."
       },
       "provisioningState": {
         "type": {
-          "$ref": "#/77"
+          "$ref": "#/78"
         },
         "flags": 2,
         "description": "The provisioning state of the private endpoint connection resource."
       },
       "groupIds": {
         "type": {
-          "$ref": "#/78"
+          "$ref": "#/79"
         },
         "flags": 0,
         "description": "The private link resource group ids."
@@ -1098,7 +1133,7 @@
     "properties": {
       "status": {
         "type": {
-          "$ref": "#/72"
+          "$ref": "#/73"
         },
         "flags": 0,
         "description": "Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service."
@@ -1135,13 +1170,13 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/69"
-      },
-      {
         "$ref": "#/70"
       },
       {
         "$ref": "#/71"
+      },
+      {
+        "$ref": "#/72"
       },
       {
         "$ref": "#/2"
@@ -1168,9 +1203,6 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/73"
-      },
-      {
         "$ref": "#/74"
       },
       {
@@ -1178,6 +1210,9 @@
       },
       {
         "$ref": "#/76"
+      },
+      {
+        "$ref": "#/77"
       },
       {
         "$ref": "#/2"
@@ -1193,7 +1228,7 @@
   {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/65"
+      "$ref": "#/66"
     }
   },
   {
@@ -1208,10 +1243,10 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/80"
+        "$ref": "#/81"
       },
       {
-        "$ref": "#/81"
+        "$ref": "#/82"
       },
       {
         "$ref": "#/2"
@@ -1248,56 +1283,56 @@
       },
       "statisticsEnabled": {
         "type": {
-          "$ref": "#/44"
+          "$ref": "#/45"
         },
         "flags": 0,
         "description": "(Bing Search Only) The flag to enable statistics of Bing Search."
       },
       "eventHubConnectionString": {
         "type": {
-          "$ref": "#/85"
+          "$ref": "#/86"
         },
         "flags": 0,
         "description": "(Personalization Only) The flag to enable statistics of Bing Search."
       },
       "storageAccountConnectionString": {
         "type": {
-          "$ref": "#/86"
+          "$ref": "#/87"
         },
         "flags": 0,
         "description": "(Personalization Only) The storage account connection string."
       },
       "aadClientId": {
         "type": {
-          "$ref": "#/87"
+          "$ref": "#/88"
         },
         "flags": 0,
         "description": "(Metrics Advisor Only) The Azure AD Client Id (Application Id)."
       },
       "aadTenantId": {
         "type": {
-          "$ref": "#/87"
+          "$ref": "#/88"
         },
         "flags": 0,
         "description": "(Metrics Advisor Only) The Azure AD Tenant Id."
       },
       "superUser": {
         "type": {
-          "$ref": "#/87"
+          "$ref": "#/88"
         },
         "flags": 0,
         "description": "(Metrics Advisor Only) The super user of Metrics Advisor."
       },
       "websiteName": {
         "type": {
-          "$ref": "#/87"
+          "$ref": "#/88"
         },
         "flags": 0,
         "description": "(Metrics Advisor Only) The website name of Metrics Advisor."
       }
     },
     "additionalProperties": {
-      "$ref": "#/83"
+      "$ref": "#/84"
     }
   },
   {
@@ -1334,7 +1369,7 @@
       },
       "rules": {
         "type": {
-          "$ref": "#/92"
+          "$ref": "#/93"
         },
         "flags": 0
       }
@@ -1370,13 +1405,13 @@
       },
       "dynamicThrottlingEnabled": {
         "type": {
-          "$ref": "#/44"
+          "$ref": "#/45"
         },
         "flags": 0
       },
       "matchPatterns": {
         "type": {
-          "$ref": "#/91"
+          "$ref": "#/92"
         },
         "flags": 0
       }
@@ -1403,13 +1438,13 @@
   {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/90"
+      "$ref": "#/91"
     }
   },
   {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/89"
+      "$ref": "#/90"
     }
   },
   {
@@ -1430,7 +1465,7 @@
       },
       "rules": {
         "type": {
-          "$ref": "#/94"
+          "$ref": "#/95"
         },
         "flags": 0
       }
@@ -1439,7 +1474,7 @@
   {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/89"
+      "$ref": "#/90"
     }
   },
   {
@@ -1462,14 +1497,14 @@
     "properties": {
       "routingMethod": {
         "type": {
-          "$ref": "#/101"
+          "$ref": "#/102"
         },
         "flags": 0,
         "description": "Multiregion routing methods."
       },
       "regions": {
         "type": {
-          "$ref": "#/103"
+          "$ref": "#/104"
         },
         "flags": 0
       }
@@ -1491,13 +1526,13 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/98"
-      },
-      {
         "$ref": "#/99"
       },
       {
         "$ref": "#/100"
+      },
+      {
+        "$ref": "#/101"
       },
       {
         "$ref": "#/2"
@@ -1534,7 +1569,7 @@
   {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/102"
+      "$ref": "#/103"
     }
   },
   {
@@ -1560,7 +1595,7 @@
   {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/104"
+      "$ref": "#/105"
     }
   },
   {
@@ -1569,7 +1604,7 @@
     "properties": {
       "action": {
         "type": {
-          "$ref": "#/109"
+          "$ref": "#/110"
         },
         "flags": 0,
         "description": "The action of AbusePenalty."
@@ -1602,10 +1637,10 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/107"
+        "$ref": "#/108"
       },
       {
-        "$ref": "#/108"
+        "$ref": "#/109"
       },
       {
         "$ref": "#/2"
@@ -1630,6 +1665,61 @@
         "flags": 0,
         "description": "The identity client Id to access the storage."
       }
+    }
+  },
+  {
+    "$type": "ObjectType",
+    "name": "NetworkInjections",
+    "properties": {
+      "scenario": {
+        "type": {
+          "$ref": "#/115"
+        },
+        "flags": 0,
+        "description": "Specifies what features in AI Foundry network injection applies to. Currently only supports 'agent' for agent scenarios. 'none' means no network injection."
+      },
+      "subnetArmId": {
+        "type": {
+          "$ref": "#/2"
+        },
+        "flags": 0,
+        "description": "Specify the subnet for which your Agent Client is injected into."
+      },
+      "useMicrosoftManagedNetwork": {
+        "type": {
+          "$ref": "#/45"
+        },
+        "flags": 0,
+        "description": "Boolean to enable Microsoft Managed Network for subnet delegation"
+      }
+    }
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "none"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "agent"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/113"
+      },
+      {
+        "$ref": "#/114"
+      },
+      {
+        "$ref": "#/2"
+      }
+    ]
+  },
+  {
+    "$type": "ArrayType",
+    "itemType": {
+      "$ref": "#/2"
     }
   },
   {
@@ -1669,21 +1759,21 @@
       },
       "type": {
         "type": {
-          "$ref": "#/112"
+          "$ref": "#/118"
         },
         "flags": 10,
         "description": "The resource type"
       },
       "apiVersion": {
         "type": {
-          "$ref": "#/113"
+          "$ref": "#/119"
         },
         "flags": 10,
         "description": "The resource api version"
       },
       "properties": {
         "type": {
-          "$ref": "#/66"
+          "$ref": "#/67"
         },
         "flags": 0,
         "description": "Resource properties."
@@ -1716,7 +1806,7 @@
     "name": "Microsoft.CognitiveServices/accounts/privateEndpointConnections@2025-04-01-preview",
     "scopeType": 8,
     "body": {
-      "$ref": "#/114"
+      "$ref": "#/120"
     },
     "flags": 0
   },
@@ -1748,14 +1838,14 @@
       },
       "type": {
         "type": {
-          "$ref": "#/116"
+          "$ref": "#/122"
         },
         "flags": 10,
         "description": "The resource type"
       },
       "apiVersion": {
         "type": {
-          "$ref": "#/117"
+          "$ref": "#/123"
         },
         "flags": 10,
         "description": "The resource api version"
@@ -1783,14 +1873,14 @@
       },
       "tags": {
         "type": {
-          "$ref": "#/119"
+          "$ref": "#/125"
         },
         "flags": 0,
         "description": "Resource tags."
       },
       "properties": {
         "type": {
-          "$ref": "#/120"
+          "$ref": "#/126"
         },
         "flags": 0,
         "description": "Properties of Cognitive Services account deployment."
@@ -1811,28 +1901,28 @@
     "properties": {
       "provisioningState": {
         "type": {
-          "$ref": "#/129"
+          "$ref": "#/135"
         },
         "flags": 2,
         "description": "Gets the status of the resource at the time the operation was called."
       },
       "model": {
         "type": {
-          "$ref": "#/130"
+          "$ref": "#/136"
         },
         "flags": 0,
         "description": "Properties of Cognitive Services account deployment model."
       },
       "scaleSettings": {
         "type": {
-          "$ref": "#/131"
+          "$ref": "#/137"
         },
         "flags": 0,
         "description": "Properties of Cognitive Services account deployment model. (Deprecated, please use Deployment.sku instead.)"
       },
       "capabilities": {
         "type": {
-          "$ref": "#/135"
+          "$ref": "#/141"
         },
         "flags": 2,
         "description": "The capabilities."
@@ -1846,27 +1936,27 @@
       },
       "callRateLimit": {
         "type": {
-          "$ref": "#/88"
+          "$ref": "#/89"
         },
         "flags": 2,
         "description": "The call rate limit Cognitive Services account."
       },
       "rateLimits": {
         "type": {
-          "$ref": "#/136"
+          "$ref": "#/142"
         },
         "flags": 2
       },
       "versionUpgradeOption": {
         "type": {
-          "$ref": "#/140"
+          "$ref": "#/146"
         },
         "flags": 0,
         "description": "Deployment model version upgrade option."
       },
       "dynamicThrottlingEnabled": {
         "type": {
-          "$ref": "#/44"
+          "$ref": "#/45"
         },
         "flags": 2,
         "description": "If the dynamic throttling is enabled."
@@ -1880,7 +1970,7 @@
       },
       "capacitySettings": {
         "type": {
-          "$ref": "#/141"
+          "$ref": "#/147"
         },
         "flags": 0,
         "description": "Internal use only."
@@ -1891,6 +1981,13 @@
         },
         "flags": 0,
         "description": "The name of parent deployment."
+      },
+      "spilloverDeploymentName": {
+        "type": {
+          "$ref": "#/2"
+        },
+        "flags": 0,
+        "description": "Specifies the deployment name that should serve requests when the request would have otherwise been throttled due to reaching current deployment throughput limit."
       }
     }
   },
@@ -1930,28 +2027,28 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/121"
-      },
-      {
-        "$ref": "#/122"
-      },
-      {
-        "$ref": "#/123"
-      },
-      {
-        "$ref": "#/124"
-      },
-      {
-        "$ref": "#/125"
-      },
-      {
-        "$ref": "#/126"
-      },
-      {
         "$ref": "#/127"
       },
       {
         "$ref": "#/128"
+      },
+      {
+        "$ref": "#/129"
+      },
+      {
+        "$ref": "#/130"
+      },
+      {
+        "$ref": "#/131"
+      },
+      {
+        "$ref": "#/132"
+      },
+      {
+        "$ref": "#/133"
+      },
+      {
+        "$ref": "#/134"
       },
       {
         "$ref": "#/2"
@@ -2006,7 +2103,7 @@
       },
       "callRateLimit": {
         "type": {
-          "$ref": "#/88"
+          "$ref": "#/89"
         },
         "flags": 2,
         "description": "The call rate limit Cognitive Services account."
@@ -2019,7 +2116,7 @@
     "properties": {
       "scaleType": {
         "type": {
-          "$ref": "#/134"
+          "$ref": "#/140"
         },
         "flags": 0,
         "description": "Deployment scale type."
@@ -2052,10 +2149,10 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/132"
+        "$ref": "#/138"
       },
       {
-        "$ref": "#/133"
+        "$ref": "#/139"
       },
       {
         "$ref": "#/2"
@@ -2073,7 +2170,7 @@
   {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/89"
+      "$ref": "#/90"
     }
   },
   {
@@ -2092,13 +2189,13 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/137"
+        "$ref": "#/143"
       },
       {
-        "$ref": "#/138"
+        "$ref": "#/144"
       },
       {
-        "$ref": "#/139"
+        "$ref": "#/145"
       },
       {
         "$ref": "#/2"
@@ -2111,14 +2208,14 @@
     "properties": {
       "designatedCapacity": {
         "type": {
-          "$ref": "#/142"
+          "$ref": "#/148"
         },
         "flags": 0,
         "description": "The designated capacity."
       },
       "priority": {
         "type": {
-          "$ref": "#/142"
+          "$ref": "#/148"
         },
         "flags": 0,
         "description": "The priority of this capacity setting."
@@ -2134,7 +2231,7 @@
     "name": "Microsoft.CognitiveServices/accounts/deployments@2025-04-01-preview",
     "scopeType": 8,
     "body": {
-      "$ref": "#/118"
+      "$ref": "#/124"
     },
     "flags": 0
   },
@@ -2166,14 +2263,14 @@
       },
       "type": {
         "type": {
-          "$ref": "#/144"
+          "$ref": "#/150"
         },
         "flags": 10,
         "description": "The resource type"
       },
       "apiVersion": {
         "type": {
-          "$ref": "#/145"
+          "$ref": "#/151"
         },
         "flags": 10,
         "description": "The resource api version"
@@ -2208,7 +2305,7 @@
       },
       "tags": {
         "type": {
-          "$ref": "#/147"
+          "$ref": "#/153"
         },
         "flags": 0,
         "description": "Resource tags."
@@ -2222,7 +2319,7 @@
       },
       "properties": {
         "type": {
-          "$ref": "#/148"
+          "$ref": "#/154"
         },
         "flags": 0,
         "description": "Properties of Cognitive Services account commitment plan."
@@ -2243,7 +2340,7 @@
     "properties": {
       "provisioningState": {
         "type": {
-          "$ref": "#/156"
+          "$ref": "#/162"
         },
         "flags": 2,
         "description": "Gets the status of the resource at the time the operation was called."
@@ -2257,7 +2354,7 @@
       },
       "hostingModel": {
         "type": {
-          "$ref": "#/161"
+          "$ref": "#/167"
         },
         "flags": 0,
         "description": "Account hosting model."
@@ -2271,35 +2368,35 @@
       },
       "current": {
         "type": {
-          "$ref": "#/162"
+          "$ref": "#/168"
         },
         "flags": 0,
         "description": "Cognitive Services account commitment period."
       },
       "autoRenew": {
         "type": {
-          "$ref": "#/44"
+          "$ref": "#/45"
         },
         "flags": 0,
         "description": "AutoRenew commitment plan."
       },
       "next": {
         "type": {
-          "$ref": "#/162"
+          "$ref": "#/168"
         },
         "flags": 0,
         "description": "Cognitive Services account commitment period."
       },
       "last": {
         "type": {
-          "$ref": "#/162"
+          "$ref": "#/168"
         },
         "flags": 2,
         "description": "Cognitive Services account commitment period."
       },
       "provisioningIssues": {
         "type": {
-          "$ref": "#/164"
+          "$ref": "#/170"
         },
         "flags": 2,
         "description": "The list of ProvisioningIssue."
@@ -2338,25 +2435,25 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/149"
-      },
-      {
-        "$ref": "#/150"
-      },
-      {
-        "$ref": "#/151"
-      },
-      {
-        "$ref": "#/152"
-      },
-      {
-        "$ref": "#/153"
-      },
-      {
-        "$ref": "#/154"
-      },
-      {
         "$ref": "#/155"
+      },
+      {
+        "$ref": "#/156"
+      },
+      {
+        "$ref": "#/157"
+      },
+      {
+        "$ref": "#/158"
+      },
+      {
+        "$ref": "#/159"
+      },
+      {
+        "$ref": "#/160"
+      },
+      {
+        "$ref": "#/161"
       },
       {
         "$ref": "#/2"
@@ -2383,16 +2480,16 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/157"
+        "$ref": "#/163"
       },
       {
-        "$ref": "#/158"
+        "$ref": "#/164"
       },
       {
-        "$ref": "#/159"
+        "$ref": "#/165"
       },
       {
-        "$ref": "#/160"
+        "$ref": "#/166"
       },
       {
         "$ref": "#/2"
@@ -2419,7 +2516,7 @@
       },
       "quota": {
         "type": {
-          "$ref": "#/163"
+          "$ref": "#/169"
         },
         "flags": 2,
         "description": "Cognitive Services account commitment quota."
@@ -2471,7 +2568,7 @@
     "name": "Microsoft.CognitiveServices/accounts/commitmentPlans@2025-04-01-preview",
     "scopeType": 8,
     "body": {
-      "$ref": "#/146"
+      "$ref": "#/152"
     },
     "flags": 0
   },
@@ -2500,21 +2597,21 @@
       },
       "name": {
         "type": {
-          "$ref": "#/166"
+          "$ref": "#/172"
         },
         "flags": 9,
         "description": "The resource name"
       },
       "type": {
         "type": {
-          "$ref": "#/167"
+          "$ref": "#/173"
         },
         "flags": 10,
         "description": "The resource type"
       },
       "apiVersion": {
         "type": {
-          "$ref": "#/168"
+          "$ref": "#/174"
         },
         "flags": 10,
         "description": "The resource api version"
@@ -2549,7 +2646,7 @@
       },
       "tags": {
         "type": {
-          "$ref": "#/170"
+          "$ref": "#/176"
         },
         "flags": 0,
         "description": "Resource tags."
@@ -2563,7 +2660,7 @@
       },
       "properties": {
         "type": {
-          "$ref": "#/148"
+          "$ref": "#/154"
         },
         "flags": 0,
         "description": "Properties of Cognitive Services account commitment plan."
@@ -2583,7 +2680,7 @@
     "name": "Microsoft.CognitiveServices/commitmentPlans@2025-04-01-preview",
     "scopeType": 8,
     "body": {
-      "$ref": "#/169"
+      "$ref": "#/175"
     },
     "flags": 0
   },
@@ -2608,107 +2705,7 @@
       },
       "name": {
         "type": {
-          "$ref": "#/166"
-        },
-        "flags": 9,
-        "description": "The resource name"
-      },
-      "type": {
-        "type": {
           "$ref": "#/172"
-        },
-        "flags": 10,
-        "description": "The resource type"
-      },
-      "apiVersion": {
-        "type": {
-          "$ref": "#/173"
-        },
-        "flags": 10,
-        "description": "The resource api version"
-      },
-      "systemData": {
-        "type": {
-          "$ref": "#/21"
-        },
-        "flags": 2,
-        "description": "Metadata pertaining to creation and last modification of the resource."
-      },
-      "etag": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 2,
-        "description": "Resource Etag."
-      },
-      "tags": {
-        "type": {
-          "$ref": "#/175"
-        },
-        "flags": 0,
-        "description": "Resource tags."
-      },
-      "properties": {
-        "type": {
-          "$ref": "#/176"
-        },
-        "flags": 0,
-        "description": "Properties of Cognitive Services account commitment plan association."
-      }
-    }
-  },
-  {
-    "$type": "ObjectType",
-    "name": "CommitmentPlanAccountAssociationTags",
-    "properties": {},
-    "additionalProperties": {
-      "$ref": "#/2"
-    }
-  },
-  {
-    "$type": "ObjectType",
-    "name": "CommitmentPlanAccountAssociationProperties",
-    "properties": {
-      "accountId": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 0,
-        "description": "The Azure resource id of the account."
-      }
-    }
-  },
-  {
-    "$type": "ResourceType",
-    "name": "Microsoft.CognitiveServices/commitmentPlans/accountAssociations@2025-04-01-preview",
-    "scopeType": 8,
-    "body": {
-      "$ref": "#/174"
-    },
-    "flags": 0
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Microsoft.CognitiveServices/accounts/encryptionScopes"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "2025-04-01-preview"
-  },
-  {
-    "$type": "ObjectType",
-    "name": "Microsoft.CognitiveServices/accounts/encryptionScopes",
-    "properties": {
-      "id": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 10,
-        "description": "The resource id"
-      },
-      "name": {
-        "type": {
-          "$ref": "#/166"
         },
         "flags": 9,
         "description": "The resource name"
@@ -2753,6 +2750,106 @@
           "$ref": "#/182"
         },
         "flags": 0,
+        "description": "Properties of Cognitive Services account commitment plan association."
+      }
+    }
+  },
+  {
+    "$type": "ObjectType",
+    "name": "CommitmentPlanAccountAssociationTags",
+    "properties": {},
+    "additionalProperties": {
+      "$ref": "#/2"
+    }
+  },
+  {
+    "$type": "ObjectType",
+    "name": "CommitmentPlanAccountAssociationProperties",
+    "properties": {
+      "accountId": {
+        "type": {
+          "$ref": "#/2"
+        },
+        "flags": 0,
+        "description": "The Azure resource id of the account."
+      }
+    }
+  },
+  {
+    "$type": "ResourceType",
+    "name": "Microsoft.CognitiveServices/commitmentPlans/accountAssociations@2025-04-01-preview",
+    "scopeType": 8,
+    "body": {
+      "$ref": "#/180"
+    },
+    "flags": 0
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Microsoft.CognitiveServices/accounts/encryptionScopes"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "2025-04-01-preview"
+  },
+  {
+    "$type": "ObjectType",
+    "name": "Microsoft.CognitiveServices/accounts/encryptionScopes",
+    "properties": {
+      "id": {
+        "type": {
+          "$ref": "#/2"
+        },
+        "flags": 10,
+        "description": "The resource id"
+      },
+      "name": {
+        "type": {
+          "$ref": "#/172"
+        },
+        "flags": 9,
+        "description": "The resource name"
+      },
+      "type": {
+        "type": {
+          "$ref": "#/184"
+        },
+        "flags": 10,
+        "description": "The resource type"
+      },
+      "apiVersion": {
+        "type": {
+          "$ref": "#/185"
+        },
+        "flags": 10,
+        "description": "The resource api version"
+      },
+      "systemData": {
+        "type": {
+          "$ref": "#/21"
+        },
+        "flags": 2,
+        "description": "Metadata pertaining to creation and last modification of the resource."
+      },
+      "etag": {
+        "type": {
+          "$ref": "#/2"
+        },
+        "flags": 2,
+        "description": "Resource Etag."
+      },
+      "tags": {
+        "type": {
+          "$ref": "#/187"
+        },
+        "flags": 0,
+        "description": "Resource tags."
+      },
+      "properties": {
+        "type": {
+          "$ref": "#/188"
+        },
+        "flags": 0,
         "description": "Properties of Cognitive Services EncryptionScope."
       }
     }
@@ -2771,28 +2868,28 @@
     "properties": {
       "provisioningState": {
         "type": {
-          "$ref": "#/190"
+          "$ref": "#/196"
         },
         "flags": 2,
         "description": "Gets the status of the resource at the time the operation was called."
       },
       "state": {
         "type": {
-          "$ref": "#/193"
+          "$ref": "#/199"
         },
         "flags": 0,
         "description": "The encryptionScope state."
       },
       "keyVaultProperties": {
         "type": {
-          "$ref": "#/58"
+          "$ref": "#/59"
         },
         "flags": 0,
         "description": "Properties of KeyVault"
       },
       "keySource": {
         "type": {
-          "$ref": "#/196"
+          "$ref": "#/202"
         },
         "flags": 0,
         "description": "Enumerates the possible value of keySource for Encryption"
@@ -2831,25 +2928,25 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/183"
-      },
-      {
-        "$ref": "#/184"
-      },
-      {
-        "$ref": "#/185"
-      },
-      {
-        "$ref": "#/186"
-      },
-      {
-        "$ref": "#/187"
-      },
-      {
-        "$ref": "#/188"
-      },
-      {
         "$ref": "#/189"
+      },
+      {
+        "$ref": "#/190"
+      },
+      {
+        "$ref": "#/191"
+      },
+      {
+        "$ref": "#/192"
+      },
+      {
+        "$ref": "#/193"
+      },
+      {
+        "$ref": "#/194"
+      },
+      {
+        "$ref": "#/195"
       },
       {
         "$ref": "#/2"
@@ -2868,10 +2965,10 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/191"
+        "$ref": "#/197"
       },
       {
-        "$ref": "#/192"
+        "$ref": "#/198"
       },
       {
         "$ref": "#/2"
@@ -2890,10 +2987,10 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/194"
+        "$ref": "#/200"
       },
       {
-        "$ref": "#/195"
+        "$ref": "#/201"
       },
       {
         "$ref": "#/2"
@@ -2905,7 +3002,7 @@
     "name": "Microsoft.CognitiveServices/accounts/encryptionScopes@2025-04-01-preview",
     "scopeType": 8,
     "body": {
-      "$ref": "#/180"
+      "$ref": "#/186"
     },
     "flags": 0
   },
@@ -2930,21 +3027,21 @@
       },
       "name": {
         "type": {
-          "$ref": "#/166"
+          "$ref": "#/172"
         },
         "flags": 9,
         "description": "The resource name"
       },
       "type": {
         "type": {
-          "$ref": "#/198"
+          "$ref": "#/204"
         },
         "flags": 10,
         "description": "The resource type"
       },
       "apiVersion": {
         "type": {
-          "$ref": "#/199"
+          "$ref": "#/205"
         },
         "flags": 10,
         "description": "The resource api version"
@@ -2965,14 +3062,14 @@
       },
       "tags": {
         "type": {
-          "$ref": "#/201"
+          "$ref": "#/207"
         },
         "flags": 0,
         "description": "Resource tags."
       },
       "properties": {
         "type": {
-          "$ref": "#/202"
+          "$ref": "#/208"
         },
         "flags": 0,
         "description": "Properties of Cognitive Services RaiPolicy."
@@ -2993,14 +3090,14 @@
     "properties": {
       "type": {
         "type": {
-          "$ref": "#/205"
+          "$ref": "#/211"
         },
         "flags": 2,
         "description": "Content Filters policy type."
       },
       "mode": {
         "type": {
-          "$ref": "#/210"
+          "$ref": "#/216"
         },
         "flags": 0,
         "description": "Rai policy mode. The enum value mapping is as below: Default = 0, Deferred=1, Blocking=2, Asynchronous_filter =3. Please use 'Asynchronous_filter' after 2025-04-01-preview. It is the same as 'Deferred' in previous version."
@@ -3014,14 +3111,14 @@
       },
       "contentFilters": {
         "type": {
-          "$ref": "#/219"
+          "$ref": "#/225"
         },
         "flags": 0,
         "description": "The list of Content Filters."
       },
       "customBlocklists": {
         "type": {
-          "$ref": "#/224"
+          "$ref": "#/230"
         },
         "flags": 0,
         "description": "The list of custom Blocklist."
@@ -3040,10 +3137,10 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/203"
+        "$ref": "#/209"
       },
       {
-        "$ref": "#/204"
+        "$ref": "#/210"
       },
       {
         "$ref": "#/2"
@@ -3070,16 +3167,16 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/206"
+        "$ref": "#/212"
       },
       {
-        "$ref": "#/207"
+        "$ref": "#/213"
       },
       {
-        "$ref": "#/208"
+        "$ref": "#/214"
       },
       {
-        "$ref": "#/209"
+        "$ref": "#/215"
       },
       {
         "$ref": "#/2"
@@ -3099,28 +3196,28 @@
       },
       "enabled": {
         "type": {
-          "$ref": "#/44"
+          "$ref": "#/45"
         },
         "flags": 0,
         "description": "If the ContentFilter is enabled."
       },
       "severityThreshold": {
         "type": {
-          "$ref": "#/215"
+          "$ref": "#/221"
         },
         "flags": 0,
         "description": "Level at which content is filtered."
       },
       "blocking": {
         "type": {
-          "$ref": "#/44"
+          "$ref": "#/45"
         },
         "flags": 0,
         "description": "If blocking would occur."
       },
       "source": {
         "type": {
-          "$ref": "#/218"
+          "$ref": "#/224"
         },
         "flags": 0,
         "description": "Content source to apply the Content Filters."
@@ -3143,13 +3240,13 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/212"
+        "$ref": "#/218"
       },
       {
-        "$ref": "#/213"
+        "$ref": "#/219"
       },
       {
-        "$ref": "#/214"
+        "$ref": "#/220"
       },
       {
         "$ref": "#/2"
@@ -3168,10 +3265,10 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/216"
+        "$ref": "#/222"
       },
       {
-        "$ref": "#/217"
+        "$ref": "#/223"
       },
       {
         "$ref": "#/2"
@@ -3181,7 +3278,7 @@
   {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/211"
+      "$ref": "#/217"
     }
   },
   {
@@ -3190,7 +3287,7 @@
     "properties": {
       "source": {
         "type": {
-          "$ref": "#/223"
+          "$ref": "#/229"
         },
         "flags": 0,
         "description": "Content source to apply the Content Filters."
@@ -3204,7 +3301,7 @@
       },
       "blocking": {
         "type": {
-          "$ref": "#/44"
+          "$ref": "#/45"
         },
         "flags": 0,
         "description": "If blocking would occur."
@@ -3223,10 +3320,10 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/221"
+        "$ref": "#/227"
       },
       {
-        "$ref": "#/222"
+        "$ref": "#/228"
       },
       {
         "$ref": "#/2"
@@ -3236,7 +3333,7 @@
   {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/220"
+      "$ref": "#/226"
     }
   },
   {
@@ -3244,7 +3341,7 @@
     "name": "Microsoft.CognitiveServices/accounts/raiPolicies@2025-04-01-preview",
     "scopeType": 8,
     "body": {
-      "$ref": "#/200"
+      "$ref": "#/206"
     },
     "flags": 0
   },
@@ -3269,107 +3366,7 @@
       },
       "name": {
         "type": {
-          "$ref": "#/166"
-        },
-        "flags": 9,
-        "description": "The resource name"
-      },
-      "type": {
-        "type": {
-          "$ref": "#/226"
-        },
-        "flags": 10,
-        "description": "The resource type"
-      },
-      "apiVersion": {
-        "type": {
-          "$ref": "#/227"
-        },
-        "flags": 10,
-        "description": "The resource api version"
-      },
-      "systemData": {
-        "type": {
-          "$ref": "#/21"
-        },
-        "flags": 2,
-        "description": "Metadata pertaining to creation and last modification of the resource."
-      },
-      "etag": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 2,
-        "description": "Resource Etag."
-      },
-      "tags": {
-        "type": {
-          "$ref": "#/229"
-        },
-        "flags": 0,
-        "description": "Resource tags."
-      },
-      "properties": {
-        "type": {
-          "$ref": "#/230"
-        },
-        "flags": 0,
-        "description": "Properties of Cognitive Services RaiBlocklist."
-      }
-    }
-  },
-  {
-    "$type": "ObjectType",
-    "name": "RaiBlocklistTags",
-    "properties": {},
-    "additionalProperties": {
-      "$ref": "#/2"
-    }
-  },
-  {
-    "$type": "ObjectType",
-    "name": "RaiBlocklistProperties",
-    "properties": {
-      "description": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 0,
-        "description": "Description of the block list."
-      }
-    }
-  },
-  {
-    "$type": "ResourceType",
-    "name": "Microsoft.CognitiveServices/accounts/raiBlocklists@2025-04-01-preview",
-    "scopeType": 8,
-    "body": {
-      "$ref": "#/228"
-    },
-    "flags": 0
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "Microsoft.CognitiveServices/accounts/raiBlocklists/raiBlocklistItems"
-  },
-  {
-    "$type": "StringLiteralType",
-    "value": "2025-04-01-preview"
-  },
-  {
-    "$type": "ObjectType",
-    "name": "Microsoft.CognitiveServices/accounts/raiBlocklists/raiBlocklistItems",
-    "properties": {
-      "id": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 10,
-        "description": "The resource id"
-      },
-      "name": {
-        "type": {
-          "$ref": "#/166"
+          "$ref": "#/172"
         },
         "flags": 9,
         "description": "The resource name"
@@ -3414,13 +3411,13 @@
           "$ref": "#/236"
         },
         "flags": 0,
-        "description": "Properties of Cognitive Services RaiBlocklist Item."
+        "description": "Properties of Cognitive Services RaiBlocklist."
       }
     }
   },
   {
     "$type": "ObjectType",
-    "name": "RaiBlocklistItemTags",
+    "name": "RaiBlocklistTags",
     "properties": {},
     "additionalProperties": {
       "$ref": "#/2"
@@ -3428,27 +3425,20 @@
   },
   {
     "$type": "ObjectType",
-    "name": "RaiBlocklistItemProperties",
+    "name": "RaiBlocklistProperties",
     "properties": {
-      "pattern": {
+      "description": {
         "type": {
           "$ref": "#/2"
         },
         "flags": 0,
-        "description": "Pattern to match against."
-      },
-      "isRegex": {
-        "type": {
-          "$ref": "#/44"
-        },
-        "flags": 0,
-        "description": "If the pattern is a regex pattern."
+        "description": "Description of the block list."
       }
     }
   },
   {
     "$type": "ResourceType",
-    "name": "Microsoft.CognitiveServices/accounts/raiBlocklists/raiBlocklistItems@2025-04-01-preview",
+    "name": "Microsoft.CognitiveServices/accounts/raiBlocklists@2025-04-01-preview",
     "scopeType": 8,
     "body": {
       "$ref": "#/234"
@@ -3457,7 +3447,7 @@
   },
   {
     "$type": "StringLiteralType",
-    "value": "Microsoft.CognitiveServices/accounts/defenderForAISettings"
+    "value": "Microsoft.CognitiveServices/accounts/raiBlocklists/raiBlocklistItems"
   },
   {
     "$type": "StringLiteralType",
@@ -3465,7 +3455,7 @@
   },
   {
     "$type": "ObjectType",
-    "name": "Microsoft.CognitiveServices/accounts/defenderForAISettings",
+    "name": "Microsoft.CognitiveServices/accounts/raiBlocklists/raiBlocklistItems",
     "properties": {
       "id": {
         "type": {
@@ -3476,7 +3466,7 @@
       },
       "name": {
         "type": {
-          "$ref": "#/166"
+          "$ref": "#/172"
         },
         "flags": 9,
         "description": "The resource name"
@@ -3521,6 +3511,113 @@
           "$ref": "#/242"
         },
         "flags": 0,
+        "description": "Properties of Cognitive Services RaiBlocklist Item."
+      }
+    }
+  },
+  {
+    "$type": "ObjectType",
+    "name": "RaiBlocklistItemTags",
+    "properties": {},
+    "additionalProperties": {
+      "$ref": "#/2"
+    }
+  },
+  {
+    "$type": "ObjectType",
+    "name": "RaiBlocklistItemProperties",
+    "properties": {
+      "pattern": {
+        "type": {
+          "$ref": "#/2"
+        },
+        "flags": 0,
+        "description": "Pattern to match against."
+      },
+      "isRegex": {
+        "type": {
+          "$ref": "#/45"
+        },
+        "flags": 0,
+        "description": "If the pattern is a regex pattern."
+      }
+    }
+  },
+  {
+    "$type": "ResourceType",
+    "name": "Microsoft.CognitiveServices/accounts/raiBlocklists/raiBlocklistItems@2025-04-01-preview",
+    "scopeType": 8,
+    "body": {
+      "$ref": "#/240"
+    },
+    "flags": 0
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Microsoft.CognitiveServices/accounts/defenderForAISettings"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "2025-04-01-preview"
+  },
+  {
+    "$type": "ObjectType",
+    "name": "Microsoft.CognitiveServices/accounts/defenderForAISettings",
+    "properties": {
+      "id": {
+        "type": {
+          "$ref": "#/2"
+        },
+        "flags": 10,
+        "description": "The resource id"
+      },
+      "name": {
+        "type": {
+          "$ref": "#/172"
+        },
+        "flags": 9,
+        "description": "The resource name"
+      },
+      "type": {
+        "type": {
+          "$ref": "#/244"
+        },
+        "flags": 10,
+        "description": "The resource type"
+      },
+      "apiVersion": {
+        "type": {
+          "$ref": "#/245"
+        },
+        "flags": 10,
+        "description": "The resource api version"
+      },
+      "systemData": {
+        "type": {
+          "$ref": "#/21"
+        },
+        "flags": 2,
+        "description": "Metadata pertaining to creation and last modification of the resource."
+      },
+      "etag": {
+        "type": {
+          "$ref": "#/2"
+        },
+        "flags": 2,
+        "description": "Resource Etag."
+      },
+      "tags": {
+        "type": {
+          "$ref": "#/247"
+        },
+        "flags": 0,
+        "description": "Resource tags."
+      },
+      "properties": {
+        "type": {
+          "$ref": "#/248"
+        },
+        "flags": 0,
         "description": "The Defender for AI resource properties."
       }
     }
@@ -3539,7 +3636,7 @@
     "properties": {
       "state": {
         "type": {
-          "$ref": "#/245"
+          "$ref": "#/251"
         },
         "flags": 0,
         "description": "Defender for AI state on the AI resource."
@@ -3558,10 +3655,10 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/243"
+        "$ref": "#/249"
       },
       {
-        "$ref": "#/244"
+        "$ref": "#/250"
       },
       {
         "$ref": "#/2"
@@ -3573,7 +3670,7 @@
     "name": "Microsoft.CognitiveServices/accounts/defenderForAISettings@2025-04-01-preview",
     "scopeType": 8,
     "body": {
-      "$ref": "#/240"
+      "$ref": "#/246"
     },
     "flags": 0
   },
@@ -3605,31 +3702,17 @@
       },
       "type": {
         "type": {
-          "$ref": "#/247"
+          "$ref": "#/253"
         },
         "flags": 10,
         "description": "The resource type"
       },
       "apiVersion": {
         "type": {
-          "$ref": "#/248"
+          "$ref": "#/254"
         },
         "flags": 10,
         "description": "The resource api version"
-      },
-      "kind": {
-        "type": {
-          "$ref": "#/2"
-        },
-        "flags": 0,
-        "description": "The Kind of the resource."
-      },
-      "sku": {
-        "type": {
-          "$ref": "#/5"
-        },
-        "flags": 0,
-        "description": "The resource model definition representing SKU"
       },
       "identity": {
         "type": {
@@ -3647,7 +3730,7 @@
       },
       "tags": {
         "type": {
-          "$ref": "#/250"
+          "$ref": "#/256"
         },
         "flags": 0,
         "description": "Resource tags."
@@ -3661,10 +3744,10 @@
       },
       "properties": {
         "type": {
-          "$ref": "#/33"
+          "$ref": "#/257"
         },
         "flags": 0,
-        "description": "Properties of Cognitive Services account."
+        "description": "Properties of Cognitive Services project."
       },
       "etag": {
         "type": {
@@ -3677,7 +3760,120 @@
   },
   {
     "$type": "ObjectType",
-    "name": "AccountTags",
+    "name": "ProjectTags",
+    "properties": {},
+    "additionalProperties": {
+      "$ref": "#/2"
+    }
+  },
+  {
+    "$type": "ObjectType",
+    "name": "ProjectProperties",
+    "properties": {
+      "provisioningState": {
+        "type": {
+          "$ref": "#/266"
+        },
+        "flags": 2,
+        "description": "Gets the status of the cognitive services project at the time the operation was called."
+      },
+      "displayName": {
+        "type": {
+          "$ref": "#/2"
+        },
+        "flags": 0,
+        "description": "The display name of the Cognitive Services Project."
+      },
+      "description": {
+        "type": {
+          "$ref": "#/2"
+        },
+        "flags": 0,
+        "description": "The description of the Cognitive Services Project."
+      },
+      "endpoints": {
+        "type": {
+          "$ref": "#/267"
+        },
+        "flags": 2,
+        "description": "The list of endpoint for this Cognitive Services Project."
+      },
+      "isDefault": {
+        "type": {
+          "$ref": "#/45"
+        },
+        "flags": 2,
+        "description": "Indicates whether the project is the default project for the account."
+      }
+    }
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Accepted"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Creating"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Deleting"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Moving"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Failed"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Succeeded"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "ResolvingDNS"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Canceled"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/258"
+      },
+      {
+        "$ref": "#/259"
+      },
+      {
+        "$ref": "#/260"
+      },
+      {
+        "$ref": "#/261"
+      },
+      {
+        "$ref": "#/262"
+      },
+      {
+        "$ref": "#/263"
+      },
+      {
+        "$ref": "#/264"
+      },
+      {
+        "$ref": "#/265"
+      },
+      {
+        "$ref": "#/2"
+      }
+    ]
+  },
+  {
+    "$type": "ObjectType",
+    "name": "ProjectPropertiesEndpoints",
     "properties": {},
     "additionalProperties": {
       "$ref": "#/2"
@@ -3688,7 +3884,7 @@
     "name": "Microsoft.CognitiveServices/accounts/projects@2025-04-01-preview",
     "scopeType": 8,
     "body": {
-      "$ref": "#/249"
+      "$ref": "#/255"
     },
     "flags": 0
   },
@@ -3717,28 +3913,28 @@
       },
       "name": {
         "type": {
-          "$ref": "#/252"
+          "$ref": "#/269"
         },
         "flags": 9,
         "description": "The resource name"
       },
       "type": {
         "type": {
-          "$ref": "#/253"
+          "$ref": "#/270"
         },
         "flags": 10,
         "description": "The resource type"
       },
       "apiVersion": {
         "type": {
-          "$ref": "#/254"
+          "$ref": "#/271"
         },
         "flags": 10,
         "description": "The resource api version"
       },
       "properties": {
         "type": {
-          "$ref": "#/256"
+          "$ref": "#/273"
         },
         "flags": 1,
         "description": "Connection property base schema."
@@ -3752,7 +3948,7 @@
     "baseProperties": {
       "category": {
         "type": {
-          "$ref": "#/362"
+          "$ref": "#/379"
         },
         "flags": 0,
         "description": "Category of the connection"
@@ -3777,39 +3973,39 @@
       },
       "group": {
         "type": {
-          "$ref": "#/370"
+          "$ref": "#/387"
         },
         "flags": 2,
         "description": "Group based on connection category"
       },
       "isSharedToAll": {
         "type": {
-          "$ref": "#/44"
+          "$ref": "#/45"
         },
         "flags": 0
       },
       "metadata": {
         "type": {
-          "$ref": "#/371"
+          "$ref": "#/388"
         },
         "flags": 0,
         "description": "Store user metadata for this connection"
       },
       "peRequirement": {
         "type": {
-          "$ref": "#/375"
+          "$ref": "#/392"
         },
         "flags": 0
       },
       "peStatus": {
         "type": {
-          "$ref": "#/379"
+          "$ref": "#/396"
         },
         "flags": 0
       },
       "sharedUserList": {
         "type": {
-          "$ref": "#/380"
+          "$ref": "#/397"
         },
         "flags": 0
       },
@@ -3821,47 +4017,47 @@
       },
       "useWorkspaceManagedIdentity": {
         "type": {
-          "$ref": "#/44"
+          "$ref": "#/45"
         },
         "flags": 0
       }
     },
     "elements": {
       "AAD": {
-        "$ref": "#/381"
+        "$ref": "#/398"
       },
       "AccessKey": {
-        "$ref": "#/383"
-      },
-      "AccountKey": {
-        "$ref": "#/387"
-      },
-      "ApiKey": {
-        "$ref": "#/390"
-      },
-      "CustomKeys": {
-        "$ref": "#/393"
-      },
-      "ManagedIdentity": {
-        "$ref": "#/397"
-      },
-      "None": {
         "$ref": "#/400"
       },
+      "AccountKey": {
+        "$ref": "#/404"
+      },
+      "ApiKey": {
+        "$ref": "#/407"
+      },
+      "CustomKeys": {
+        "$ref": "#/410"
+      },
+      "ManagedIdentity": {
+        "$ref": "#/414"
+      },
+      "None": {
+        "$ref": "#/417"
+      },
       "OAuth2": {
-        "$ref": "#/402"
+        "$ref": "#/419"
       },
       "PAT": {
-        "$ref": "#/406"
+        "$ref": "#/423"
       },
       "SAS": {
-        "$ref": "#/409"
+        "$ref": "#/426"
       },
       "ServicePrincipal": {
-        "$ref": "#/412"
+        "$ref": "#/429"
       },
       "UsernamePassword": {
-        "$ref": "#/415"
+        "$ref": "#/432"
       }
     }
   },
@@ -4289,57 +4485,6 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/257"
-      },
-      {
-        "$ref": "#/258"
-      },
-      {
-        "$ref": "#/259"
-      },
-      {
-        "$ref": "#/260"
-      },
-      {
-        "$ref": "#/261"
-      },
-      {
-        "$ref": "#/262"
-      },
-      {
-        "$ref": "#/263"
-      },
-      {
-        "$ref": "#/264"
-      },
-      {
-        "$ref": "#/265"
-      },
-      {
-        "$ref": "#/266"
-      },
-      {
-        "$ref": "#/267"
-      },
-      {
-        "$ref": "#/268"
-      },
-      {
-        "$ref": "#/269"
-      },
-      {
-        "$ref": "#/270"
-      },
-      {
-        "$ref": "#/271"
-      },
-      {
-        "$ref": "#/272"
-      },
-      {
-        "$ref": "#/273"
-      },
-      {
         "$ref": "#/274"
       },
       {
@@ -4604,6 +4749,57 @@
         "$ref": "#/361"
       },
       {
+        "$ref": "#/362"
+      },
+      {
+        "$ref": "#/363"
+      },
+      {
+        "$ref": "#/364"
+      },
+      {
+        "$ref": "#/365"
+      },
+      {
+        "$ref": "#/366"
+      },
+      {
+        "$ref": "#/367"
+      },
+      {
+        "$ref": "#/368"
+      },
+      {
+        "$ref": "#/369"
+      },
+      {
+        "$ref": "#/370"
+      },
+      {
+        "$ref": "#/371"
+      },
+      {
+        "$ref": "#/372"
+      },
+      {
+        "$ref": "#/373"
+      },
+      {
+        "$ref": "#/374"
+      },
+      {
+        "$ref": "#/375"
+      },
+      {
+        "$ref": "#/376"
+      },
+      {
+        "$ref": "#/377"
+      },
+      {
+        "$ref": "#/378"
+      },
+      {
         "$ref": "#/2"
       }
     ]
@@ -4640,25 +4836,25 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/363"
+        "$ref": "#/380"
       },
       {
-        "$ref": "#/364"
+        "$ref": "#/381"
       },
       {
-        "$ref": "#/365"
+        "$ref": "#/382"
       },
       {
-        "$ref": "#/366"
+        "$ref": "#/383"
       },
       {
-        "$ref": "#/367"
+        "$ref": "#/384"
       },
       {
-        "$ref": "#/368"
+        "$ref": "#/385"
       },
       {
-        "$ref": "#/369"
+        "$ref": "#/386"
       },
       {
         "$ref": "#/2"
@@ -4689,13 +4885,13 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/372"
+        "$ref": "#/389"
       },
       {
-        "$ref": "#/373"
+        "$ref": "#/390"
       },
       {
-        "$ref": "#/374"
+        "$ref": "#/391"
       },
       {
         "$ref": "#/2"
@@ -4718,13 +4914,13 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/376"
+        "$ref": "#/393"
       },
       {
-        "$ref": "#/377"
+        "$ref": "#/394"
       },
       {
-        "$ref": "#/378"
+        "$ref": "#/395"
       },
       {
         "$ref": "#/2"
@@ -4743,7 +4939,7 @@
     "properties": {
       "authType": {
         "type": {
-          "$ref": "#/382"
+          "$ref": "#/399"
         },
         "flags": 1,
         "description": "Authentication type of the connection target"
@@ -4760,13 +4956,13 @@
     "properties": {
       "credentials": {
         "type": {
-          "$ref": "#/384"
+          "$ref": "#/401"
         },
         "flags": 0
       },
       "authType": {
         "type": {
-          "$ref": "#/386"
+          "$ref": "#/403"
         },
         "flags": 1,
         "description": "Authentication type of the connection target"
@@ -4785,7 +4981,7 @@
       },
       "secretAccessKey": {
         "type": {
-          "$ref": "#/385"
+          "$ref": "#/402"
         },
         "flags": 0
       }
@@ -4805,14 +5001,14 @@
     "properties": {
       "credentials": {
         "type": {
-          "$ref": "#/388"
+          "$ref": "#/405"
         },
         "flags": 0,
         "description": "Account key object for connection credential."
       },
       "authType": {
         "type": {
-          "$ref": "#/389"
+          "$ref": "#/406"
         },
         "flags": 1,
         "description": "Authentication type of the connection target"
@@ -4841,14 +5037,14 @@
     "properties": {
       "credentials": {
         "type": {
-          "$ref": "#/391"
+          "$ref": "#/408"
         },
         "flags": 0,
         "description": "Api key object for connection credential."
       },
       "authType": {
         "type": {
-          "$ref": "#/392"
+          "$ref": "#/409"
         },
         "flags": 1,
         "description": "Authentication type of the connection target"
@@ -4877,14 +5073,14 @@
     "properties": {
       "credentials": {
         "type": {
-          "$ref": "#/394"
+          "$ref": "#/411"
         },
         "flags": 0,
         "description": "Custom Keys credential object"
       },
       "authType": {
         "type": {
-          "$ref": "#/396"
+          "$ref": "#/413"
         },
         "flags": 1,
         "description": "Authentication type of the connection target"
@@ -4897,7 +5093,7 @@
     "properties": {
       "keys": {
         "type": {
-          "$ref": "#/395"
+          "$ref": "#/412"
         },
         "flags": 0,
         "description": "Dictionary of <string>"
@@ -4922,13 +5118,13 @@
     "properties": {
       "credentials": {
         "type": {
-          "$ref": "#/398"
+          "$ref": "#/415"
         },
         "flags": 0
       },
       "authType": {
         "type": {
-          "$ref": "#/399"
+          "$ref": "#/416"
         },
         "flags": 1,
         "description": "Authentication type of the connection target"
@@ -4963,7 +5159,7 @@
     "properties": {
       "authType": {
         "type": {
-          "$ref": "#/401"
+          "$ref": "#/418"
         },
         "flags": 1,
         "description": "Authentication type of the connection target"
@@ -4980,14 +5176,14 @@
     "properties": {
       "credentials": {
         "type": {
-          "$ref": "#/403"
+          "$ref": "#/420"
         },
         "flags": 0,
         "description": "ClientId and ClientSecret are required. Other properties are optional\r\ndepending on each OAuth2 provider's implementation."
       },
       "authType": {
         "type": {
-          "$ref": "#/405"
+          "$ref": "#/422"
         },
         "flags": 1,
         "description": "Authentication type of the connection target"
@@ -5007,33 +5203,33 @@
       },
       "clientId": {
         "type": {
-          "$ref": "#/404"
+          "$ref": "#/421"
         },
         "flags": 0,
         "description": "Client id in the format of UUID"
       },
       "clientSecret": {
         "type": {
-          "$ref": "#/385"
+          "$ref": "#/402"
         },
         "flags": 0
       },
       "developerToken": {
         "type": {
-          "$ref": "#/385"
+          "$ref": "#/402"
         },
         "flags": 0,
         "description": "Required by GoogleAdWords connection category"
       },
       "password": {
         "type": {
-          "$ref": "#/385"
+          "$ref": "#/402"
         },
         "flags": 0
       },
       "refreshToken": {
         "type": {
-          "$ref": "#/385"
+          "$ref": "#/402"
         },
         "flags": 0,
         "description": "Required by GoogleBigQuery, GoogleAdWords, Hubspot, QuickBooks, Square, Xero, Zoho\r\nwhere user needs to get RefreshToken offline"
@@ -5070,13 +5266,13 @@
     "properties": {
       "credentials": {
         "type": {
-          "$ref": "#/407"
+          "$ref": "#/424"
         },
         "flags": 0
       },
       "authType": {
         "type": {
-          "$ref": "#/408"
+          "$ref": "#/425"
         },
         "flags": 1,
         "description": "Authentication type of the connection target"
@@ -5089,7 +5285,7 @@
     "properties": {
       "pat": {
         "type": {
-          "$ref": "#/385"
+          "$ref": "#/402"
         },
         "flags": 0
       }
@@ -5105,13 +5301,13 @@
     "properties": {
       "credentials": {
         "type": {
-          "$ref": "#/410"
+          "$ref": "#/427"
         },
         "flags": 0
       },
       "authType": {
         "type": {
-          "$ref": "#/411"
+          "$ref": "#/428"
         },
         "flags": 1,
         "description": "Authentication type of the connection target"
@@ -5140,13 +5336,13 @@
     "properties": {
       "credentials": {
         "type": {
-          "$ref": "#/413"
+          "$ref": "#/430"
         },
         "flags": 0
       },
       "authType": {
         "type": {
-          "$ref": "#/414"
+          "$ref": "#/431"
         },
         "flags": 1,
         "description": "Authentication type of the connection target"
@@ -5165,7 +5361,7 @@
       },
       "clientSecret": {
         "type": {
-          "$ref": "#/385"
+          "$ref": "#/402"
         },
         "flags": 0
       },
@@ -5187,13 +5383,13 @@
     "properties": {
       "credentials": {
         "type": {
-          "$ref": "#/416"
+          "$ref": "#/433"
         },
         "flags": 0
       },
       "authType": {
         "type": {
-          "$ref": "#/417"
+          "$ref": "#/434"
         },
         "flags": 1,
         "description": "Authentication type of the connection target"
@@ -5206,13 +5402,13 @@
     "properties": {
       "password": {
         "type": {
-          "$ref": "#/385"
+          "$ref": "#/402"
         },
         "flags": 0
       },
       "securityToken": {
         "type": {
-          "$ref": "#/385"
+          "$ref": "#/402"
         },
         "flags": 0,
         "description": "Optional, required by connections like SalesForce for extra security in addition to UsernamePassword"
@@ -5234,7 +5430,7 @@
     "name": "Microsoft.CognitiveServices/accounts/connections@2025-04-01-preview",
     "scopeType": 8,
     "body": {
-      "$ref": "#/255"
+      "$ref": "#/272"
     },
     "flags": 0
   },
@@ -5259,28 +5455,28 @@
       },
       "name": {
         "type": {
-          "$ref": "#/252"
+          "$ref": "#/269"
         },
         "flags": 9,
         "description": "The resource name"
       },
       "type": {
         "type": {
-          "$ref": "#/419"
+          "$ref": "#/436"
         },
         "flags": 10,
         "description": "The resource type"
       },
       "apiVersion": {
         "type": {
-          "$ref": "#/420"
+          "$ref": "#/437"
         },
         "flags": 10,
         "description": "The resource api version"
       },
       "properties": {
         "type": {
-          "$ref": "#/256"
+          "$ref": "#/273"
         },
         "flags": 1,
         "description": "Connection property base schema."
@@ -5292,7 +5488,7 @@
     "name": "Microsoft.CognitiveServices/accounts/projects/connections@2025-04-01-preview",
     "scopeType": 8,
     "body": {
-      "$ref": "#/421"
+      "$ref": "#/438"
     },
     "flags": 0
   },
@@ -5321,28 +5517,28 @@
       },
       "name": {
         "type": {
-          "$ref": "#/423"
+          "$ref": "#/440"
         },
         "flags": 9,
         "description": "The resource name"
       },
       "type": {
         "type": {
-          "$ref": "#/424"
+          "$ref": "#/441"
         },
         "flags": 10,
         "description": "The resource type"
       },
       "apiVersion": {
         "type": {
-          "$ref": "#/425"
+          "$ref": "#/442"
         },
         "flags": 10,
         "description": "The resource api version"
       },
       "properties": {
         "type": {
-          "$ref": "#/427"
+          "$ref": "#/444"
         },
         "flags": 1,
         "description": "[Required] Additional attributes of the entity."
@@ -5355,14 +5551,14 @@
     "properties": {
       "aiServicesConnections": {
         "type": {
-          "$ref": "#/428"
+          "$ref": "#/445"
         },
         "flags": 0,
         "description": "List of AI services connections."
       },
       "capabilityHostKind": {
         "type": {
-          "$ref": "#/430"
+          "$ref": "#/447"
         },
         "flags": 0,
         "description": "Kind of this capability host."
@@ -5376,28 +5572,28 @@
       },
       "provisioningState": {
         "type": {
-          "$ref": "#/437"
+          "$ref": "#/454"
         },
         "flags": 2,
         "description": "Provisioning state for the CapabilityHost."
       },
       "storageConnections": {
         "type": {
-          "$ref": "#/438"
+          "$ref": "#/455"
         },
         "flags": 0,
         "description": "List of Storage connections."
       },
       "threadStorageConnections": {
         "type": {
-          "$ref": "#/439"
+          "$ref": "#/456"
         },
         "flags": 0,
         "description": "List of Thread storage connections."
       },
       "vectorStoreConnections": {
         "type": {
-          "$ref": "#/440"
+          "$ref": "#/457"
         },
         "flags": 0,
         "description": "List of VectorStore connections."
@@ -5411,7 +5607,7 @@
       },
       "tags": {
         "type": {
-          "$ref": "#/441"
+          "$ref": "#/458"
         },
         "flags": 0,
         "description": "Tag dictionary. Tags can be added, removed, and updated."
@@ -5432,7 +5628,7 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/429"
+        "$ref": "#/446"
       },
       {
         "$ref": "#/2"
@@ -5467,22 +5663,22 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/431"
+        "$ref": "#/448"
       },
       {
-        "$ref": "#/432"
+        "$ref": "#/449"
       },
       {
-        "$ref": "#/433"
+        "$ref": "#/450"
       },
       {
-        "$ref": "#/434"
+        "$ref": "#/451"
       },
       {
-        "$ref": "#/435"
+        "$ref": "#/452"
       },
       {
-        "$ref": "#/436"
+        "$ref": "#/453"
       },
       {
         "$ref": "#/2"
@@ -5520,7 +5716,7 @@
     "name": "Microsoft.CognitiveServices/accounts/capabilityHosts@2025-04-01-preview",
     "scopeType": 8,
     "body": {
-      "$ref": "#/426"
+      "$ref": "#/443"
     },
     "flags": 0
   },
@@ -5545,28 +5741,28 @@
       },
       "name": {
         "type": {
-          "$ref": "#/423"
+          "$ref": "#/440"
         },
         "flags": 9,
         "description": "The resource name"
       },
       "type": {
         "type": {
-          "$ref": "#/443"
+          "$ref": "#/460"
         },
         "flags": 10,
         "description": "The resource type"
       },
       "apiVersion": {
         "type": {
-          "$ref": "#/444"
+          "$ref": "#/461"
         },
         "flags": 10,
         "description": "The resource api version"
       },
       "properties": {
         "type": {
-          "$ref": "#/427"
+          "$ref": "#/444"
         },
         "flags": 1,
         "description": "[Required] Additional attributes of the entity."
@@ -5578,7 +5774,7 @@
     "name": "Microsoft.CognitiveServices/accounts/projects/capabilityHosts@2025-04-01-preview",
     "scopeType": 8,
     "body": {
-      "$ref": "#/445"
+      "$ref": "#/462"
     },
     "flags": 0
   },
@@ -5610,14 +5806,14 @@
       },
       "type": {
         "type": {
-          "$ref": "#/447"
+          "$ref": "#/464"
         },
         "flags": 10,
         "description": "The resource type"
       },
       "apiVersion": {
         "type": {
-          "$ref": "#/448"
+          "$ref": "#/465"
         },
         "flags": 10,
         "description": "The resource api version"
@@ -5652,7 +5848,7 @@
       },
       "tags": {
         "type": {
-          "$ref": "#/450"
+          "$ref": "#/467"
         },
         "flags": 2,
         "description": "Resource tags."
@@ -5693,7 +5889,7 @@
     "name": "Microsoft.CognitiveServices/locations/resourceGroups/deletedAccounts@2025-04-01-preview",
     "scopeType": 4,
     "body": {
-      "$ref": "#/449"
+      "$ref": "#/466"
     },
     "flags": 1
   },
@@ -5718,28 +5914,28 @@
       },
       "name": {
         "type": {
-          "$ref": "#/166"
+          "$ref": "#/172"
         },
         "flags": 9,
         "description": "The resource name"
       },
       "type": {
         "type": {
-          "$ref": "#/452"
+          "$ref": "#/469"
         },
         "flags": 10,
         "description": "The resource type"
       },
       "apiVersion": {
         "type": {
-          "$ref": "#/453"
+          "$ref": "#/470"
         },
         "flags": 10,
         "description": "The resource api version"
       },
       "properties": {
         "type": {
-          "$ref": "#/455"
+          "$ref": "#/472"
         },
         "flags": 2,
         "description": "Azure OpenAI Content Filter Properties."
@@ -5759,14 +5955,14 @@
       },
       "isMultiLevelFilter": {
         "type": {
-          "$ref": "#/44"
+          "$ref": "#/45"
         },
         "flags": 0,
         "description": "If the Content Filter has multi severity levels(Low, Medium, or High)."
       },
       "source": {
         "type": {
-          "$ref": "#/458"
+          "$ref": "#/475"
         },
         "flags": 0,
         "description": "Content source to apply the Content Filters."
@@ -5785,10 +5981,10 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/456"
+        "$ref": "#/473"
       },
       {
-        "$ref": "#/457"
+        "$ref": "#/474"
       },
       {
         "$ref": "#/2"
@@ -5800,7 +5996,7 @@
     "name": "Microsoft.CognitiveServices/locations/raiContentFilters@2025-04-01-preview",
     "scopeType": 4,
     "body": {
-      "$ref": "#/454"
+      "$ref": "#/471"
     },
     "flags": 1
   },
@@ -5829,28 +6025,28 @@
       },
       "name": {
         "type": {
-          "$ref": "#/460"
+          "$ref": "#/477"
         },
         "flags": 9,
         "description": "The resource name"
       },
       "type": {
         "type": {
-          "$ref": "#/461"
+          "$ref": "#/478"
         },
         "flags": 10,
         "description": "The resource type"
       },
       "apiVersion": {
         "type": {
-          "$ref": "#/462"
+          "$ref": "#/479"
         },
         "flags": 10,
         "description": "The resource api version"
       },
       "properties": {
         "type": {
-          "$ref": "#/464"
+          "$ref": "#/481"
         },
         "flags": 2,
         "description": "NSP Configuration properties."
@@ -5870,28 +6066,28 @@
       },
       "provisioningIssues": {
         "type": {
-          "$ref": "#/480"
+          "$ref": "#/497"
         },
         "flags": 0,
         "description": "List of Provisioning Issues"
       },
       "networkSecurityPerimeter": {
         "type": {
-          "$ref": "#/476"
+          "$ref": "#/493"
         },
         "flags": 0,
         "description": "Information about a linked Network Security Perimeter"
       },
       "resourceAssociation": {
         "type": {
-          "$ref": "#/481"
+          "$ref": "#/498"
         },
         "flags": 0,
         "description": "Network Security Perimeter Configuration Association Information"
       },
       "profile": {
         "type": {
-          "$ref": "#/482"
+          "$ref": "#/499"
         },
         "flags": 0,
         "description": "Network Security Perimeter Profile Information"
@@ -5911,7 +6107,7 @@
       },
       "properties": {
         "type": {
-          "$ref": "#/466"
+          "$ref": "#/483"
         },
         "flags": 0,
         "description": "Properties of Provisioning Issue"
@@ -5945,14 +6141,14 @@
       },
       "suggestedResourceIds": {
         "type": {
-          "$ref": "#/467"
+          "$ref": "#/484"
         },
         "flags": 0,
         "description": "IDs of resources that can be associated to the same perimeter to remediate the issue."
       },
       "suggestedAccessRules": {
         "type": {
-          "$ref": "#/479"
+          "$ref": "#/496"
         },
         "flags": 0,
         "description": "Optional array, suggested access rules"
@@ -5978,7 +6174,7 @@
       },
       "properties": {
         "type": {
-          "$ref": "#/469"
+          "$ref": "#/486"
         },
         "flags": 0,
         "description": "Properties of Network Security Perimeter Access Rule"
@@ -5991,35 +6187,35 @@
     "properties": {
       "direction": {
         "type": {
-          "$ref": "#/472"
+          "$ref": "#/489"
         },
         "flags": 0,
         "description": "Direction of Access Rule"
       },
       "addressPrefixes": {
         "type": {
-          "$ref": "#/473"
+          "$ref": "#/490"
         },
         "flags": 0,
         "description": "Address prefixes for inbound rules"
       },
       "subscriptions": {
         "type": {
-          "$ref": "#/475"
+          "$ref": "#/492"
         },
         "flags": 0,
         "description": "Subscriptions for inbound rules"
       },
       "networkSecurityPerimeters": {
         "type": {
-          "$ref": "#/477"
+          "$ref": "#/494"
         },
         "flags": 0,
         "description": "NetworkSecurityPerimeters for inbound rules"
       },
       "fullyQualifiedDomainNames": {
         "type": {
-          "$ref": "#/478"
+          "$ref": "#/495"
         },
         "flags": 0,
         "description": "Fully qualified domain name for outbound rules"
@@ -6038,10 +6234,10 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/470"
+        "$ref": "#/487"
       },
       {
-        "$ref": "#/471"
+        "$ref": "#/488"
       },
       {
         "$ref": "#/2"
@@ -6070,7 +6266,7 @@
   {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/474"
+      "$ref": "#/491"
     }
   },
   {
@@ -6103,7 +6299,7 @@
   {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/476"
+      "$ref": "#/493"
     }
   },
   {
@@ -6115,13 +6311,13 @@
   {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/468"
+      "$ref": "#/485"
     }
   },
   {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/465"
+      "$ref": "#/482"
     }
   },
   {
@@ -6164,7 +6360,7 @@
       },
       "accessRules": {
         "type": {
-          "$ref": "#/483"
+          "$ref": "#/500"
         },
         "flags": 0
       },
@@ -6177,7 +6373,7 @@
       },
       "enabledLogCategories": {
         "type": {
-          "$ref": "#/484"
+          "$ref": "#/501"
         },
         "flags": 0,
         "description": "List of enabled log categories"
@@ -6187,7 +6383,7 @@
   {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/468"
+      "$ref": "#/485"
     }
   },
   {
@@ -6201,7 +6397,7 @@
     "name": "Microsoft.CognitiveServices/accounts/networkSecurityPerimeterConfigurations@2025-04-01-preview",
     "scopeType": 8,
     "body": {
-      "$ref": "#/463"
+      "$ref": "#/480"
     },
     "flags": 1
   },
@@ -6231,7 +6427,7 @@
     "resourceType": "Microsoft.CognitiveServices/accounts",
     "apiVersion": "2025-04-01-preview",
     "output": {
-      "$ref": "#/486"
+      "$ref": "#/503"
     }
   },
   {
@@ -6240,7 +6436,7 @@
     "properties": {
       "keyName": {
         "type": {
-          "$ref": "#/491"
+          "$ref": "#/508"
         },
         "flags": 1,
         "description": "key name to generate (Key1|Key2)"
@@ -6259,10 +6455,10 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/489"
+        "$ref": "#/506"
       },
       {
-        "$ref": "#/490"
+        "$ref": "#/507"
       }
     ]
   },
@@ -6272,10 +6468,10 @@
     "resourceType": "Microsoft.CognitiveServices/accounts",
     "apiVersion": "2025-04-01-preview",
     "output": {
-      "$ref": "#/486"
+      "$ref": "#/503"
     },
     "input": {
-      "$ref": "#/488"
+      "$ref": "#/505"
     }
   },
   {
@@ -6284,7 +6480,7 @@
     "properties": {
       "skus": {
         "type": {
-          "$ref": "#/494"
+          "$ref": "#/511"
         },
         "flags": 1,
         "description": "The SKU of the resource."
@@ -6317,7 +6513,7 @@
     "properties": {
       "value": {
         "type": {
-          "$ref": "#/497"
+          "$ref": "#/514"
         },
         "flags": 0,
         "description": "Check SKU availability result list."
@@ -6351,7 +6547,7 @@
       },
       "skuAvailable": {
         "type": {
-          "$ref": "#/44"
+          "$ref": "#/45"
         },
         "flags": 0,
         "description": "Indicates the given SKU is available or not."
@@ -6375,7 +6571,7 @@
   {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/496"
+      "$ref": "#/513"
     }
   },
   {
@@ -6384,10 +6580,10 @@
     "resourceType": "Microsoft.CognitiveServices/locations",
     "apiVersion": "2025-04-01-preview",
     "output": {
-      "$ref": "#/495"
+      "$ref": "#/512"
     },
     "input": {
-      "$ref": "#/493"
+      "$ref": "#/510"
     }
   },
   {
@@ -6402,7 +6598,7 @@
       },
       "properties": {
         "type": {
-          "$ref": "#/236"
+          "$ref": "#/242"
         },
         "flags": 0,
         "description": "Properties of Cognitive Services RaiBlocklist Item."
@@ -6412,7 +6608,7 @@
   {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/499"
+      "$ref": "#/516"
     }
   },
   {
@@ -6435,14 +6631,14 @@
       },
       "tags": {
         "type": {
-          "$ref": "#/502"
+          "$ref": "#/519"
         },
         "flags": 0,
         "description": "Resource tags."
       },
       "properties": {
         "type": {
-          "$ref": "#/230"
+          "$ref": "#/236"
         },
         "flags": 0,
         "description": "Properties of Cognitive Services RaiBlocklist."
@@ -6484,10 +6680,10 @@
     "resourceType": "Microsoft.CognitiveServices/accounts/raiBlocklists",
     "apiVersion": "2025-04-01-preview",
     "output": {
-      "$ref": "#/501"
+      "$ref": "#/518"
     },
     "input": {
-      "$ref": "#/500"
+      "$ref": "#/517"
     }
   },
   {
@@ -6496,7 +6692,7 @@
     "resourceType": "Microsoft.CognitiveServices/accounts/raiBlocklists",
     "apiVersion": "2025-04-01-preview",
     "input": {
-      "$ref": "#/83"
+      "$ref": "#/84"
     }
   },
   {
@@ -6505,7 +6701,7 @@
     "properties": {
       "properties": {
         "type": {
-          "$ref": "#/464"
+          "$ref": "#/481"
         },
         "flags": 0,
         "description": "NSP Configuration properties."
@@ -6539,7 +6735,7 @@
     "resourceType": "Microsoft.CognitiveServices/accounts/networkSecurityPerimeterConfigurations",
     "apiVersion": "2025-04-01-preview",
     "output": {
-      "$ref": "#/505"
+      "$ref": "#/522"
     }
   }
 ]
